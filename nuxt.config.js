@@ -72,13 +72,34 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
-    // https://tailwindcss.nuxtjs.org/
-    '@nuxtjs/tailwindcss',
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
     // https://vite-pwa-org.netlify.app/frameworks/nuxt
     '@vite-pwa/nuxt',
+    // https://ui.nuxt.com/
+    '@nuxt/ui',
+    // https://nuxt.com/modules/lodash
+    'nuxt-lodash',
+    // https://nuxt.com/modules/viewport
+    'nuxt-viewport',
+    // https://nuxt.com/modules/open-fetch
+    'nuxt-open-fetch',
+    // https://nuxt.com/modules/icons
+    'nuxt-icons',
+    // https://vueuse.org/nuxt/README.html
+    '@vueuse/nuxt',
+    '@formkit/auto-animate/nuxt',
+    '@nuxt/fonts',
+    '@nuxt/scripts'
   ],
+
+  // Tailwind CSS configuration
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    viewer: true,
+  },
 
   // Color mode configuration
   colorMode: {
@@ -126,6 +147,16 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ['echarts', 'vue-echarts'],
     },
+  },
+
+  // Auto-import composables
+  imports: {
+    dirs: ['composables'],
+  },
+
+  // TypeScript configuration
+  typescript: {
+    strict: true,
   },
 
   compatibilityDate: '2025-03-12',
