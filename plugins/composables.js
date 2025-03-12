@@ -20,18 +20,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide('max', useMax)
   nuxtApp.provide('api', useApi)
 
-  // Add to globalProperties for options API
-  // In Vue 3, we need to use defineProperty instead of direct assignment
-  Object.defineProperties(nuxtApp.vueApp.config.globalProperties, {
-    $viewport: { get: () => viewport },
-    $toPairs: { get: () => useToPairs },
-    $orderBy: { get: () => useOrderBy },
-    $min: { get: () => useMin },
-    $max: { get: () => useMax },
-    $api: { get: () => useApi },
-  })
-
-  // Return the composables for use in components
+  // Skip adding to globalProperties since it's causing issues
+  // Just return the composables for use in components
   return {
     provide: {
       viewport,

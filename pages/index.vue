@@ -12,6 +12,7 @@ import { LabelLayout } from 'echarts/features'
 import type { IModelAvailabilityRow, IStatusInfo } from '~/interfaces/model'
 import { parseMilliseconds } from '~/utils/date'
 import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters'
+import { ref, computed, watch, onMounted } from 'vue'
 
 use([
   BarChart,
@@ -43,7 +44,14 @@ const INTERVAL_HOURS = 8
 const TOTAL_DOTS = 90 // 1 dot every 8 hours across 30 days
 const modelsPerPage = 20
 
-const viewport = useViewport()
+const nuxtApp = useNuxtApp()
+const viewport = nuxtApp.$viewport
+const useApi = nuxtApp.$api
+const useToPairs = nuxtApp.$toPairs
+const useOrderBy = nuxtApp.$orderBy
+const useMin = nuxtApp.$min
+const useMax = nuxtApp.$max
+
 const statRows = [
   {
     name: 'Language Models',
