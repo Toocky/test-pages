@@ -1,4 +1,6 @@
 import globals from 'globals';
+import vuePlugin from 'eslint-plugin-vue';
+import vueParser from 'vue-eslint-parser';
 
 export default [
   {
@@ -32,10 +34,40 @@ export default [
   },
   {
     files: ['**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+        parser: {
+          js: 'espree',
+          ts: 'espree',
+        },
+      },
+      globals: {
+        ...globals.browser,
+        ref: 'readonly',
+        computed: 'readonly',
+        reactive: 'readonly',
+        onMounted: 'readonly',
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
+        defineExpose: 'readonly',
+        withDefaults: 'readonly',
+      },
+    },
+    plugins: {
+      vue: vuePlugin,
+    },
     rules: {
-      // Disable rules that cause issues with Vue files
-      'no-unused-vars': 'off',
-      'no-undef': 'off',
+      ...vuePlugin.configs.base.rules,
+      'vue/multi-word-component-names': 'off',
+      'vue/no-v-html': 'off',
+      'vue/require-default-prop': 'off',
+      'vue/require-explicit-emits': 'off',
     },
   },
 ];
