@@ -44,13 +44,13 @@ const INTERVAL_HOURS = 8
 const TOTAL_DOTS = 90 // 1 dot every 8 hours across 30 days
 const modelsPerPage = 20
 
-const nuxtApp = useNuxtApp()
-const viewport = nuxtApp.$viewport
-const useApi = nuxtApp.$api
-const useToPairs = nuxtApp.$toPairs
-const useOrderBy = nuxtApp.$orderBy
-const useMin = nuxtApp.$min
-const useMax = nuxtApp.$max
+// Use composables directly
+const viewport = useViewport()
+const api = useApi()
+const { toPairs } = useLodash()
+const { orderBy } = useLodash()
+const { min: minValue } = useLodash()
+const { max: maxValue } = useLodash()
 
 const statRows = [
   {
@@ -129,7 +129,7 @@ const calculatePercentage = (value: number, total: number) => {
   return (value / total) * 100
 }
 
-const { data: modelsRef } = await useApi('/models', {})
+const { data: modelsRef } = await api('/models', {})
 const models = computed<Map<string, Model>>(() => {
   const map = new Map()
   for (const model of modelsRef.value || []) {
@@ -178,8 +178,8 @@ const modelCounters = computed(() => {
 })
 
 const topProvidersData = computed(() => {
-  return useOrderBy(
-    useToPairs(modelCounters.value.byProvider),
+  return orderBy(
+    toPairs(modelCounters.value.byProvider),
     (item) => item[1],
     'desc',
   )
@@ -190,8 +190,8 @@ const topProvidersData = computed(() => {
     }))
 })
 const topModelsData = computed(() => {
-  return useOrderBy(
-    useToPairs(modelCounters.value.byModel),
+  return orderBy(
+    toPairs(modelCounters.value.byModel),
     (item) => item[1],
     'desc',
   )
@@ -208,7 +208,7 @@ const groupedAvailability = ref(new Map())
 const filteredGroupedAvailability = computed(() => {
   const searchValue = search.value ? search.value.toLowerCase() : ''
   return new Map(
-    useOrderBy(
+    orderBy(
       Array.from(groupedAvailability.value.entries()).filter(
         ([model, modelsMap]) => {
           if (!searchValue) return true
@@ -245,7 +245,7 @@ const paginatedGroupedAvailability = computed(() => {
 })
 const setGroupedAvailability = async (type) => {
   loading.value = true
-  const { data: modelsAvailabilityRef } = await useApi('/models/availability', {
+  const { data: modelsAvailabilityRef } = await api('/models/availability', {
     params: { type: type !== 'all' ? type : undefined, period: PERIOD_DAYS },
     server: false,
   })
@@ -578,7 +578,7 @@ const setGroupedAvailability = async (type) => {
         undefined,
       ]
       if (row.last_previous_status_dt && row.last_previous_status) {
-        totalTracked = useMin([
+        totalTracked = minValue([
           differenceInSeconds(nowDt, lastPreviousStatusDt),
           maxTotalTracked,
         ])
@@ -647,7 +647,7 @@ const setGroupedAvailability = async (type) => {
     }
     const groupedRow = modelRows.get(providerModelKey)
     const statusDt = new Date(row.status_dt)
-    const secondsSinceStatus = useMin([
+    const secondsSinceStatus = minValue([
       differenceInSeconds(nowDt, statusDt),
       maxTotalTracked,
     ])
@@ -659,7 +659,7 @@ const setGroupedAvailability = async (type) => {
         upTime += secondsSinceStatus
       }
     } else if (!groupedRow.lastStatus) {
-      groupedRow.totalTracked = useMax([
+      groupedRow.totalTracked = maxValue([
         differenceInSeconds(nowDt, statusDt),
         groupedRow.totalTracked,
       ])
@@ -690,7 +690,7 @@ const setGroupedAvailability = async (type) => {
       .filter(([_, modelsMap]) => modelsMap.size > 0)
       .map(([model, modelsMap]) => [
         model,
-        useOrderBy(
+        orderBy(
           Array.from(modelsMap.values()).map((groupedRow) => {
             groupedRow.latenciesRating = groupedRow.latencies.map(
               (latency, index) => {
