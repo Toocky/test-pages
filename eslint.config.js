@@ -1,6 +1,8 @@
 import globals from 'globals';
 import vuePlugin from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
   {
@@ -44,7 +46,8 @@ export default [
         },
         parser: {
           js: 'espree',
-          ts: 'espree',
+          ts: tsParser,
+          '<template>': 'espree',
         },
       },
       globals: {
@@ -61,13 +64,16 @@ export default [
     },
     plugins: {
       vue: vuePlugin,
+      '@typescript-eslint': tseslint,
     },
     rules: {
-      ...vuePlugin.configs.base.rules,
+      'vue/comment-directive': 0,
       'vue/multi-word-component-names': 'off',
       'vue/no-v-html': 'off',
       'vue/require-default-prop': 'off',
       'vue/require-explicit-emits': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 ];
