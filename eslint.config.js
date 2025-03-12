@@ -8,13 +8,31 @@ export default [
     files: ['**/*.vue'],
     languageOptions: {
       parser: vueParser,
-      ecmaVersion: 2022,
-      sourceType: 'module',
+      parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+        // Use @typescript-eslint/parser to parse <script> tags
+        parser: {
+          js: 'espree',
+          ts: 'espree',
+          '<template>': 'espree',
+        },
+        extraFileExtensions: ['.vue'],
+      },
       globals: {
         defineNuxtConfig: 'readonly',
         useNuxtApp: 'readonly',
         defineNuxtPlugin: 'readonly',
         useRuntimeConfig: 'readonly',
+        ref: 'readonly',
+        computed: 'readonly',
+        watch: 'readonly',
+        onMounted: 'readonly',
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
       },
     },
     rules: {
@@ -32,7 +50,7 @@ export default [
         defineNuxtConfig: 'readonly',
         useNuxtApp: 'readonly',
         defineNuxtPlugin: 'readonly',
-        useRuntimeConfig: 'readonly',
+        useRuntimeMatch: 'readonly',
       },
     },
     rules: {
