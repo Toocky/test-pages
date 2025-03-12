@@ -24,7 +24,7 @@ export function useLodash() {
     // Handle array of iteratees
     const iteratees = Array.isArray(iteratee) ? iteratee : [iteratee]
     const orders = Array.isArray(order) ? order : [order]
-    
+
     // Ensure orders array is at least as long as iteratees
     while (orders.length < iteratees.length) {
       orders.push(orders[orders.length - 1] || 'asc')
@@ -34,14 +34,16 @@ export function useLodash() {
       for (let i = 0; i < iteratees.length; i++) {
         const currentIteratee = iteratees[i]
         const currentOrder = orders[i] || 'asc'
-        
-        const valueA = typeof currentIteratee === 'function' 
-          ? currentIteratee(a) 
-          : a[currentIteratee as keyof T]
-        
-        const valueB = typeof currentIteratee === 'function' 
-          ? currentIteratee(b) 
-          : b[currentIteratee as keyof T]
+
+        const valueA =
+          typeof currentIteratee === 'function'
+            ? currentIteratee(a)
+            : a[currentIteratee as keyof T]
+
+        const valueB =
+          typeof currentIteratee === 'function'
+            ? currentIteratee(b)
+            : b[currentIteratee as keyof T]
 
         if (valueA === valueB) {
           // If values are equal, continue to next iteratee
@@ -54,7 +56,7 @@ export function useLodash() {
           return valueA > valueB ? -1 : 1
         }
       }
-      
+
       // If all iteratees resulted in equal values
       return 0
     })
@@ -80,6 +82,6 @@ export function useLodash() {
     toPairs,
     orderBy,
     min,
-    max
+    max,
   }
 }
