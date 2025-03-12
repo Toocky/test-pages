@@ -72,6 +72,8 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
+    // https://tailwindcss.nuxtjs.org/
+    '@nuxtjs/tailwindcss',
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
     // https://vite-pwa-org.netlify.app/frameworks/nuxt
@@ -96,14 +98,6 @@ export default defineNuxtConfig({
     configPath: 'tailwind.config.js',
     exposeConfig: false,
     viewer: true,
-  },
-
-  // PostCSS configuration
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
   },
 
   // Color mode configuration
