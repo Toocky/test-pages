@@ -2,8 +2,9 @@
 export default defineNuxtConfig({
   // Target: static site generation
   ssr: false,
-  target: 'static',  
-  
+
+  target: 'static',
+
   // GitHub Pages deployment
   app: {
     baseURL: process.env.npm_package_name ? `/${process.env.npm_package_name}/` : '/',
@@ -123,4 +124,6 @@ export default defineNuxtConfig({
       include: ['echarts', 'vue-echarts'],
     },
   },
+
+  compatibilityDate: '2025-03-12',
 })
