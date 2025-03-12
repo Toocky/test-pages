@@ -23,19 +23,16 @@
     "webpack": "^5.98.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.26.10",
+    "@eslint/js": "^9.22.0",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/eslint-config": "^12.0.0",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@vite-pwa/nuxt": "^0.6.0",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-vue": "^10.0.0",
-    "nuxt": "^3.16.0",
     "prettier": "^3.5.3",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "nuxt": "^3.16.0"
   },
   "type": "module"
 }

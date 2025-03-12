@@ -1,19 +1,23 @@
-import nuxt from '@nuxtjs/eslint-config/eslint.config.js';
-import vue from 'eslint-plugin-vue';
-import prettier from 'eslint-config-prettier';
-
 export default [
   {
     ignores: ['.git', '.github', 'node_modules', '.nuxt', 'dist', '.output'],
   },
-  nuxt,
   {
-    plugins: {
-      vue,
+    files: ['**/*.vue', '**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        defineNuxtConfig: 'readonly',
+        useNuxtApp: 'readonly',
+        defineNuxtPlugin: 'readonly',
+        useRuntimeConfig: 'readonly',
+      },
     },
     rules: {
-      // Add your custom rules here
+      // General rules
+      'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+      'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
   },
-  prettier,
 ];
