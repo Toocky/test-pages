@@ -30,7 +30,11 @@ jobs:
         run: yarn generate
 
       - name: Deploy
+<<<<<<< HEAD
         uses: peaceiris/actions-gh-pages@v4.0.0
+=======
+        uses: peaceiris/actions-gh-pages@v4
+>>>>>>> 71a4e1118d48111c0dc9c6831629da1dc5387b40
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
