@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   // Target: static site generation
   ssr: false,
-  target: 'static',
+  target: 'static',  
   
   // GitHub Pages deployment
   app: {
@@ -93,7 +93,7 @@ export default defineNuxtConfig({
       theme_color: '#00A279',
       icons: [
         {
-          src: 'icon.png',
+          src: 'assets/icon.png',
           sizes: '512x512',
           type: 'image/png'
         }

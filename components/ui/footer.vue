@@ -72,7 +72,7 @@ const items = [
       <div class="flex flex-col justify-between">
         <div class="flex flex-col gap-[26px]">
           <u-link :to="mainSiteUrl" class="flex gap-2 font-bold font-primary text-2xl md:text-[30px]" external>
-            <img class="h-8" src="/img/logo-drk.png" alt="logo" />
+            <img class="h-8" src="~/assets/img/logo-drk.png" alt="logo" />
             APIpie.ai
           </u-link>
           <div class="flex gap-6">
@@ -92,15 +92,15 @@ const items = [
         </div>
       </div>
       <div class="grid grid-cols-2 xl:grid-cols-3 gap-10 xl:gap-20">
-        <div v-for="(item, i) in items" class="flex flex-col gap-4" :key="i">
+        <div v-for="(item, i) in items" :key="i" class="flex flex-col gap-4">
           <div class="text-slate-500 text-sm font-normal font-secondary">{{ item[0] }}</div>
           <div class="flex flex-col gap-3.5 items-start">
             <u-link
               v-for="(link, i2) in item[1]"
-              class="text-slate-200 text-sm font-medium"
+              :key="i2"
               :to="link.to"
               :external="link.external"
-              :key="i2"
+              class="text-slate-200 text-sm font-medium"
             >
               {{ link.name }}
             </u-link>

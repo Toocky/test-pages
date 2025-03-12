@@ -5,7 +5,7 @@ const mainSiteUrl = 'https://apipie.ai';
 <template>
   <div class="w-full px-5 md:px-[30px] pt-4 pb-2 flex justify-between shadow border-b border-gray-800">
     <u-link :to="mainSiteUrl" class="flex gap-2 font-bold font-primary text-2xl md:text-[30px]" external>
-      <img class="h-8" src="/img/logo-drk.png" alt="logo" />
+      <img class="h-8" src="~/assets/img/logo-drk.png" alt="logo" />
       APIpie.ai
     </u-link>
     <div class="flex gap-[30px] pb-2">
