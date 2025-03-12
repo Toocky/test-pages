@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   // Plugins
-  plugins: ['~/plugins/vue-echarts.js', '~/plugins/composables.js'],
+  plugins: ['~/plugins/vue-echarts.js'],
 
   // Auto import components
   components: true,

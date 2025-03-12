@@ -13,6 +13,9 @@ import type { IModelAvailabilityRow, IStatusInfo } from '~/interfaces/model'
 import { parseMilliseconds } from '~/utils/date'
 import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters'
 import { ref, computed, watch, onMounted } from 'vue'
+import { useViewport } from '~/composables/use-viewport'
+import { useApi } from '~/composables/use-api'
+import { useLodash } from '~/composables/useLodash'
 
 use([
   BarChart,
@@ -47,10 +50,7 @@ const modelsPerPage = 20
 // Use composables directly
 const viewport = useViewport()
 const api = useApi()
-const { toPairs } = useLodash()
-const { orderBy } = useLodash()
-const { min: minValue } = useLodash()
-const { max: maxValue } = useLodash()
+const { toPairs, orderBy, min: minValue, max: maxValue } = useLodash()
 
 const statRows = [
   {
