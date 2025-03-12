@@ -1,3 +1,5 @@
+import globals from 'globals';
+
 export default [
   {
     ignores: [
@@ -7,7 +9,6 @@ export default [
       '.nuxt/**',
       'dist/**',
       '.output/**',
-      '**/*.vue', // Explicitly ignore Vue files
     ],
   },
   {
@@ -16,6 +17,7 @@ export default [
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
+        ...globals.node,
         defineNuxtConfig: 'readonly',
         useNuxtApp: 'readonly',
         defineNuxtPlugin: 'readonly',
@@ -28,4 +30,12 @@ export default [
       'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
   },
-]
+  {
+    files: ['**/*.vue'],
+    rules: {
+      // Disable rules that cause issues with Vue files
+      'no-unused-vars': 'off',
+      'no-undef': 'off',
+    },
+  },
+];
