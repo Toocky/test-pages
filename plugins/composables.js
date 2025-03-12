@@ -12,7 +12,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   // Create a shared viewport instance
   const viewport = useViewport()
 
-  // Make composables available globally
+  // Make composables available globally via provide/inject
   nuxtApp.provide('viewport', viewport)
   nuxtApp.provide('toPairs', useToPairs)
   nuxtApp.provide('orderBy', useOrderBy)
@@ -21,12 +21,15 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide('api', useApi)
 
   // Add to globalProperties for options API
-  nuxtApp.vueApp.config.globalProperties.$viewport = viewport
-  nuxtApp.vueApp.config.globalProperties.$toPairs = useToPairs
-  nuxtApp.vueApp.config.globalProperties.$orderBy = useOrderBy
-  nuxtApp.vueApp.config.globalProperties.$min = useMin
-  nuxtApp.vueApp.config.globalProperties.$max = useMax
-  nuxtApp.vueApp.config.globalProperties.$api = useApi
+  // In Vue 3, we need to use defineProperty instead of direct assignment
+  Object.defineProperties(nuxtApp.vueApp.config.globalProperties, {
+    $viewport: { get: () => viewport },
+    $toPairs: { get: () => useToPairs },
+    $orderBy: { get: () => useOrderBy },
+    $min: { get: () => useMin },
+    $max: { get: () => useMax },
+    $api: { get: () => useApi },
+  })
 
   // Return the composables for use in components
   return {
