@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: 'class',
   content: [
     './components/**/*.{js,vue,ts}',
@@ -9,7 +9,7 @@ module.exports = {
     './app.vue',
     './error.vue',
   ],
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [await import('@tailwindcss/forms').then(module => module.default || module)],
   theme: {
     extend: {
       colors: {
