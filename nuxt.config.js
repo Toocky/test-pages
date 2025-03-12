@@ -98,6 +98,13 @@ export default defineNuxtConfig({
     configPath: 'tailwind.config.js',
     exposeConfig: false,
     viewer: true,
+    // Use ESM for postcss configuration
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
   },
 
   // Color mode configuration
