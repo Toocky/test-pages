@@ -7,7 +7,9 @@ export default defineNuxtConfig({
 
   // GitHub Pages deployment
   app: {
-    baseURL: process.env.npm_package_name ? `/${process.env.npm_package_name}/` : '/',
+    baseURL: process.env.npm_package_name
+      ? `/${process.env.npm_package_name}/`
+      : '/',
     head: {
       title: 'APIpie.ai - Global AI Health Dashboard',
       meta: [
@@ -16,7 +18,8 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
         {
           name: 'description',
-          content: 'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
+          content:
+            'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
         },
         { property: 'og:type', content: 'website' },
         {
@@ -33,7 +36,8 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:description',
-          content: 'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
+          content:
+            'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
         },
         {
           name: 'twitter:card',
@@ -49,21 +53,19 @@ export default defineNuxtConfig({
         },
         {
           name: 'twitter:description',
-          content: 'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
+          content:
+            'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
         },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    }
+    },
   },
 
   // Global CSS
   css: ['~/assets/css/main.css'],
 
   // Plugins
-  plugins: [
-    '~/plugins/vue-echarts.js',
-    '~/plugins/composables.js'
-  ],
+  plugins: ['~/plugins/vue-echarts.js', '~/plugins/composables.js'],
 
   // Auto import components
   components: true,
@@ -90,15 +92,16 @@ export default defineNuxtConfig({
     manifest: {
       name: 'APIpie.ai - Global AI Health Dashboard',
       short_name: 'APIpie Dashboard',
-      description: 'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
+      description:
+        'Your Global AI Health Dashboard - Monitor AI model availability and performance.',
       theme_color: '#00A279',
       icons: [
         {
           src: 'assets/icon.png',
           sizes: '512x512',
-          type: 'image/png'
-        }
-      ]
+          type: 'image/png',
+        },
+      ],
     },
     workbox: {
       navigateFallback: '/',

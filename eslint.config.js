@@ -7,7 +7,7 @@ export default [
       '.nuxt/**',
       'dist/**',
       '.output/**',
-      '**/*.vue'  // Explicitly ignore Vue files
+      '**/*.vue', // Explicitly ignore Vue files
     ],
   },
   {
@@ -28,4 +28,4 @@ export default [
       'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
   },
-];
+]

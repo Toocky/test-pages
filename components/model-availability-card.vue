@@ -1,53 +1,54 @@
 <script setup lang="ts">
-import type { IModelAvailabilityRow } from '~/interfaces/model';
-import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters';
+import type { IModelAvailabilityRow } from '~/interfaces/model'
+import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters'
 
 const props = defineProps<{
-  model: IModelAvailabilityRow;
-  secondary?: boolean;
-  groupKey?: string;
-}>();
+  model: IModelAvailabilityRow
+  secondary?: boolean
+  groupKey?: string
+}>()
 
 const modelNameParts = computed(() => {
-  if (!props.groupKey || !props.model.model) return { before: '', match: props.model.model, after: '' };
-  
-  const modelName = props.model.model.toLowerCase();
-  const groupKey = props.groupKey.toLowerCase();
-  const index = modelName.indexOf(groupKey);
-  
-  if (index === -1) return { before: '', match: props.model.model, after: '' };
-  
+  if (!props.groupKey || !props.model.model)
+    return { before: '', match: props.model.model, after: '' }
+
+  const modelName = props.model.model.toLowerCase()
+  const groupKey = props.groupKey.toLowerCase()
+  const index = modelName.indexOf(groupKey)
+
+  if (index === -1) return { before: '', match: props.model.model, after: '' }
+
   return {
     before: props.model.model.slice(0, index),
     match: props.model.model.slice(index, index + props.groupKey.length),
-    after: props.model.model.slice(index + props.groupKey.length)
-  };
-});
-const viewport = useViewport();
+    after: props.model.model.slice(index + props.groupKey.length),
+  }
+})
+const viewport = useViewport()
 
 const iconColor = computed(() => {
   if (props.model.lastStatus) {
     if (props.model.lastStatus.status === 'AVAILABLE') {
-      return 'bg-emerald-500';
+      return 'bg-emerald-500'
     }
-    return 'bg-red-500';
+    return 'bg-red-500'
   } else {
-    return 'bg-gray-700';
+    return 'bg-gray-700'
   }
-});
+})
 
 const badgeColor = computed(() => {
-  const upTimePercentage = props.model.upTimePercentage;
+  const upTimePercentage = props.model.upTimePercentage
   if (upTimePercentage !== null) {
     if (upTimePercentage >= 80) {
-      return 'emerald';
+      return 'emerald'
     } else if (upTimePercentage >= 50) {
-      return 'amber';
+      return 'amber'
     }
-    return 'red';
+    return 'red'
   }
-  return '';
-});
+  return ''
+})
 
 const latencyBuckets = computed(() => [
   { label: 'TtFC', index: 6 },
@@ -56,11 +57,11 @@ const latencyBuckets = computed(() => [
   { label: '8k', index: 2 },
   { label: '16k', index: 3 },
   { label: '32k', index: 4 },
-]);
+])
 
 const shouldShowInputOutputCost = computed(() => {
-  return props.model.inputCost != null && props.model.outputCost != null;
-});
+  return props.model.inputCost != null && props.model.outputCost != null
+})
 </script>
 
 <template>
@@ -86,33 +87,68 @@ const shouldShowInputOutputCost = computed(() => {
             </u-badge>
           </div>
           <div class="flex gap-1 md:justify-center md:items-center">
-            <u-icon class="h-6 w-6" :class="iconColor" name="i-heroicons-check-circle"></u-icon>
+            <u-icon
+              class="h-6 w-6"
+              :class="iconColor"
+              name="i-heroicons-check-circle"
+            ></u-icon>
             <span class="text-lg">
-              <span v-if="modelNameParts.before" class="text-slate-500 font-medium">{{ modelNameParts.before }}</span>
+              <span
+                v-if="modelNameParts.before"
+                class="text-slate-500 font-medium"
+                >{{ modelNameParts.before }}</span
+              >
               <span class="font-semibold">{{ modelNameParts.match }}</span>
-              <span v-if="modelNameParts.after" class="text-slate-500 font-medium">{{ modelNameParts.after }}</span>
+              <span
+                v-if="modelNameParts.after"
+                class="text-slate-500 font-medium"
+                >{{ modelNameParts.after }}</span
+              >
             </span>
             <span class="text-lg font-medium">({{ model.provider }})</span>
           </div>
         </div>
         <div v-if="viewport.isGreaterOrEquals('xl')" class="flex gap-3">
-          <u-badge v-if="shouldShowInputOutputCost" size="lg" color="gray" variant="solid">
+          <u-badge
+            v-if="shouldShowInputOutputCost"
+            size="lg"
+            color="gray"
+            variant="solid"
+          >
             <span class="text-slate-400 text-sm font-medium">Input:</span>
-              <span class="text-sm font-semibold">{{ addUSD(numberToMoney(props.model.inputCost, 2)) }}</span>
-              <span class="text-slate-400 text-sm font-medium">/M</span>
+            <span class="text-sm font-semibold">{{
+              addUSD(numberToMoney(props.model.inputCost, 2))
+            }}</span>
+            <span class="text-slate-400 text-sm font-medium">/M</span>
           </u-badge>
-          <u-badge v-if="shouldShowInputOutputCost" size="lg" color="gray" variant="solid">
+          <u-badge
+            v-if="shouldShowInputOutputCost"
+            size="lg"
+            color="gray"
+            variant="solid"
+          >
             <span class="text-slate-400 text-sm font-medium">Output:</span>
-              <span class="text-sm font-semibold">{{ addUSD(numberToMoney(props.model.outputCost, 2)) }}</span>
-              <span class="text-slate-400 text-sm font-medium">/M</span>
+            <span class="text-sm font-semibold">{{
+              addUSD(numberToMoney(props.model.outputCost, 2))
+            }}</span>
+            <span class="text-slate-400 text-sm font-medium">/M</span>
           </u-badge>
-          <u-badge v-else-if="props.model.avgCost" size="lg" color="gray" variant="solid">
+          <u-badge
+            v-else-if="props.model.avgCost"
+            size="lg"
+            color="gray"
+            variant="solid"
+          >
             <div class="flex justify-center items-center gap-1.5">
               <span class="text-sm font-semibold">
                 {{ addUSD(numberToMoney(props.model.avgCost, 5)) }}
               </span>
               <span class="text-slate-400 text-sm font-medium">
-                {{ ['image', 'embedding'].includes(props.model.type) ? 'avg' : '1000/char' }}
+                {{
+                  ['image', 'embedding'].includes(props.model.type)
+                    ? 'avg'
+                    : '1000/char'
+                }}
               </span>
             </div>
           </u-badge>
@@ -135,21 +171,38 @@ const shouldShowInputOutputCost = computed(() => {
         ></div>
       </div>
       <div class="flex gap-4 flex-col xl:flex-row xl:justify-between">
-        <div v-if="viewport.isGreaterOrEquals('md')" class="flex gap-3 flex-wrap">
+        <div
+          v-if="viewport.isGreaterOrEquals('md')"
+          class="flex gap-3 flex-wrap"
+        >
           <template v-for="bucket in latencyBuckets" :key="bucket.label">
-            <u-badge v-if="props.model.latenciesFormatted.length > bucket.index" size="lg" color="gray" variant="solid">
+            <u-badge
+              v-if="props.model.latenciesFormatted.length > bucket.index"
+              size="lg"
+              color="gray"
+              variant="solid"
+            >
               <div class="flex justify-center items-center gap-1.5">
                 <div
                   class="w-2 h-2 rounded-md"
                   :class="{
-                    'bg-emerald-500': props.model.latenciesRating[bucket.index] >= 80,
-                    'bg-amber-500': props.model.latenciesRating[bucket.index] >= 30 && props.model.latenciesRating[bucket.index] < 80,
-                    'bg-red-500': props.model.latencies[bucket.index] !== null && props.model.latenciesRating[bucket.index] < 30,
+                    'bg-emerald-500':
+                      props.model.latenciesRating[bucket.index] >= 80,
+                    'bg-amber-500':
+                      props.model.latenciesRating[bucket.index] >= 30 &&
+                      props.model.latenciesRating[bucket.index] < 80,
+                    'bg-red-500':
+                      props.model.latencies[bucket.index] !== null &&
+                      props.model.latenciesRating[bucket.index] < 30,
                     'bg-gray-700': props.model.latencies[bucket.index] === null,
                   }"
                 ></div>
-                <span class="text-slate-400 text-sm font-medium">{{ bucket.label }}</span>
-                <span class="text-sm font-semibold">{{ props.model.latenciesFormatted[bucket.index] }}</span>
+                <span class="text-slate-400 text-sm font-medium">{{
+                  bucket.label
+                }}</span>
+                <span class="text-sm font-semibold">{{
+                  props.model.latenciesFormatted[bucket.index]
+                }}</span>
               </div>
             </u-badge>
           </template>
@@ -162,12 +215,16 @@ const shouldShowInputOutputCost = computed(() => {
             variant="solid"
           >
             <div class="flex justify-center items-center gap-1.5">
-              <span class="text-sm font-semibold">{{ formatLargeNumber(props.model.maxTokens) }}</span>
+              <span class="text-sm font-semibold">{{
+                formatLargeNumber(props.model.maxTokens)
+              }}</span>
               <span class="text-slate-400 text-sm font-medium">MaxTokens</span>
             </div>
           </u-badge>
           <u-badge
-            v-if="props.model.maxResponseTokens && viewport.isGreaterOrEquals('md')"
+            v-if="
+              props.model.maxResponseTokens && viewport.isGreaterOrEquals('md')
+            "
             size="lg"
             color="gray"
             variant="solid"
@@ -176,26 +233,49 @@ const shouldShowInputOutputCost = computed(() => {
               <span class="text-sm font-semibold">
                 {{ formatLargeNumber(props.model.maxResponseTokens) }}
               </span>
-              <span class="text-slate-400 text-sm font-medium">MaxResponse</span>
+              <span class="text-slate-400 text-sm font-medium"
+                >MaxResponse</span
+              >
             </div>
           </u-badge>
           <template v-if="viewport.isLessThan('xl')">
-            <u-badge v-if="shouldShowInputOutputCost" size="lg" color="gray" variant="solid">
+            <u-badge
+              v-if="shouldShowInputOutputCost"
+              size="lg"
+              color="gray"
+              variant="solid"
+            >
               <span class="text-slate-400 text-sm font-medium">Input:</span>
-              <span class="text-sm font-semibold">{{ addUSD(numberToMoney(props.model.inputCost, 2)) }}</span>
+              <span class="text-sm font-semibold">{{
+                addUSD(numberToMoney(props.model.inputCost, 2))
+              }}</span>
               <span class="text-slate-400 text-sm font-medium">/M</span>
             </u-badge>
-            <u-badge v-if="shouldShowInputOutputCost" size="lg" color="gray" variant="solid">
+            <u-badge
+              v-if="shouldShowInputOutputCost"
+              size="lg"
+              color="gray"
+              variant="solid"
+            >
               <span class="text-slate-400 text-sm font-medium">Output:</span>
-              <span class="text-sm font-semibold">{{ addUSD(numberToMoney(props.model.outputCost, 2)) }}</span>
+              <span class="text-sm font-semibold">{{
+                addUSD(numberToMoney(props.model.outputCost, 2))
+              }}</span>
               <span class="text-slate-400 text-sm font-medium">/M</span>
             </u-badge>
-            <u-badge v-else-if="props.model.avgCost" size="lg" color="gray" variant="solid">
+            <u-badge
+              v-else-if="props.model.avgCost"
+              size="lg"
+              color="gray"
+              variant="solid"
+            >
               <div class="flex justify-center items-center gap-1.5">
                 <span class="text-sm font-semibold">
                   {{ addUSD(numberToMoney(props.model.avgCost, 5)) }}
                 </span>
-                <span class="text-slate-400 text-sm font-medium">1000/char</span>
+                <span class="text-slate-400 text-sm font-medium"
+                  >1000/char</span
+                >
               </div>
             </u-badge>
           </template>

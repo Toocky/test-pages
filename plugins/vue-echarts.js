@@ -1,10 +1,14 @@
-import { defineNuxtPlugin } from '#app';
-import ECharts from 'vue-echarts';
-import { use } from 'echarts/core';
-import { CanvasRenderer } from 'echarts/renderers';
-import { BarChart, PieChart } from 'echarts/charts';
-import { GridComponent, LegendComponent, TooltipComponent } from 'echarts/components';
-import { LabelLayout } from 'echarts/features';
+import { defineNuxtPlugin } from '#app'
+import ECharts from 'vue-echarts'
+import { use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
+import { BarChart, PieChart } from 'echarts/charts'
+import {
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+} from 'echarts/components'
+import { LabelLayout } from 'echarts/features'
 
 // Register ECharts components
 use([
@@ -14,10 +18,10 @@ use([
   GridComponent,
   LegendComponent,
   TooltipComponent,
-  LabelLayout
-]);
+  LabelLayout,
+])
 
 export default defineNuxtPlugin((nuxtApp) => {
   // Register the component globally
-  nuxtApp.vueApp.component('VChart', ECharts);
-});
+  nuxtApp.vueApp.component('VChart', ECharts)
+})

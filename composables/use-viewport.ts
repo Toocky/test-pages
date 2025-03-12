@@ -1,8 +1,8 @@
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue'
 
-export const useViewport = function() {
-  const width = ref(0);
-  
+export const useViewport = function () {
+  const width = ref(0)
+
   const breakpoints = {
     xs: 320,
     sm: 640,
@@ -10,32 +10,32 @@ export const useViewport = function() {
     lg: 1024,
     xl: 1280,
     '2xl': 1536,
-  };
+  }
 
   function updateWidth() {
-    width.value = window.innerWidth;
+    width.value = window.innerWidth
   }
 
   onMounted(() => {
-    updateWidth();
-    window.addEventListener('resize', updateWidth);
-  });
+    updateWidth()
+    window.addEventListener('resize', updateWidth)
+  })
 
   onUnmounted(() => {
-    window.removeEventListener('resize', updateWidth);
-  });
+    window.removeEventListener('resize', updateWidth)
+  })
 
   function isGreaterOrEquals(breakpoint: keyof typeof breakpoints) {
-    return width.value >= breakpoints[breakpoint];
+    return width.value >= breakpoints[breakpoint]
   }
 
   function isLessThan(breakpoint: keyof typeof breakpoints) {
-    return width.value < breakpoints[breakpoint];
+    return width.value < breakpoints[breakpoint]
   }
 
   return {
     width,
     isGreaterOrEquals,
     isLessThan,
-  };
-};
+  }
+}
