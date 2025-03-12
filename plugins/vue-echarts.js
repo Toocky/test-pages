@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { defineNuxtPlugin } from '#app';
 import ECharts from 'vue-echarts';
 import { use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
@@ -17,5 +17,7 @@ use([
   LabelLayout
 ]);
 
-// Register the component globally
-Vue.component('v-chart', ECharts);
+export default defineNuxtPlugin((nuxtApp) => {
+  // Register the component globally
+  nuxtApp.vueApp.component('VChart', ECharts);
+});
