@@ -88,9 +88,6 @@ export default defineNuxtConfig({
     'nuxt-icons',
     // https://vueuse.org/nuxt/README.html
     '@vueuse/nuxt',
-    '@formkit/auto-animate/nuxt',
-    '@nuxt/fonts',
-    '@nuxt/scripts'
   ],
 
   // Tailwind CSS configuration
@@ -99,6 +96,14 @@ export default defineNuxtConfig({
     configPath: 'tailwind.config.js',
     exposeConfig: false,
     viewer: true,
+  },
+
+  // PostCSS configuration
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 
   // Color mode configuration
