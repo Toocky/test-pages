@@ -8,9 +8,9 @@ updates:
       time: '00:00'
     open-pull-requests-limit: 10
     reviewers:
-      - agtraveso
+      - toocky
     assignees:
-      - agtraveso
+      - toocky
     commit-message:
       prefix: fix
       prefix-development: chore
@@ -30,9 +30,9 @@ updates:
       time: '00:00'
     open-pull-requests-limit: 10
     reviewers:
-      - agtraveso
+      - toocky
     assignees:
-      - agtraveso
+      - toocky
     commit-message:
       prefix: fix
       prefix-development: chore
