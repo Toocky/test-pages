@@ -1,8 +1,8 @@
-import globals from 'globals';
-import vuePlugin from 'eslint-plugin-vue';
-import vueParser from 'vue-eslint-parser';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
+import globals from 'globals'
+import vuePlugin from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
+import tseslint from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
 
 export default [
   {
@@ -76,4 +76,4 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off',
     },
   },
-];
+]
