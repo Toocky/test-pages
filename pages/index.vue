@@ -8,25 +8,30 @@ import { useApi } from '~/composables/use-api'
 
 // Only import and use echarts on client-side
 if (process.client) {
-  const { use } = require('echarts/core')
-  const { CanvasRenderer } = require('echarts/renderers')
-  const { BarChart, PieChart } = require('echarts/charts')
-  const {
-    GridComponent,
-    LegendComponent,
-    TooltipComponent,
-  } = require('echarts/components')
-  const { LabelLayout } = require('echarts/features')
-
-  use([
-    BarChart,
-    CanvasRenderer,
-    PieChart,
-    GridComponent,
-    LabelLayout,
-    TooltipComponent,
-    LegendComponent,
-  ])
+  // Use dynamic imports for client-side only
+  Promise.all([
+    import('echarts/core'),
+    import('echarts/renderers'),
+    import('echarts/charts'),
+    import('echarts/components'),
+    import('echarts/features')
+  ]).then(([
+    { use },
+    { CanvasRenderer },
+    { BarChart, PieChart },
+    { GridComponent, LegendComponent, TooltipComponent },
+    { LabelLayout }
+  ]) => {
+    use([
+      BarChart,
+      CanvasRenderer,
+      PieChart,
+      GridComponent,
+      LabelLayout,
+      TooltipComponent,
+      LegendComponent,
+    ])
+  })
 }
 
 // Define Model type since we don't have the generated types

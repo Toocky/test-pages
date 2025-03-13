@@ -10,9 +10,14 @@ import type {
 } from 'echarts/components'
 
 // VChart will be imported dynamically on the client-side
+import { ref, computed, watch } from 'vue'
 let VChart = null
+
+// Use dynamic import for client-side only
 if (process.client) {
-  VChart = require('vue-echarts').default
+  import('vue-echarts').then(module => {
+    VChart = module.default
+  })
 }
 
 type PieOption = ComposeOption<
