@@ -48,11 +48,6 @@ const modelsPerPage = 20
 // Use composables directly
 const viewport = useViewport()
 const api = useApi()
-// Use lodash functions directly
-const toPairs = useToPairs
-const orderBy = useOrderBy
-const minValue = useMin
-const maxValue = useMax
 
 const statRows = [
   {
@@ -182,8 +177,8 @@ const modelCounters = computed(() => {
 })
 
 const topProvidersData = computed(() => {
-  return orderBy(
-    toPairs(modelCounters.value.byProvider),
+  return useOrderBy(
+    useToPairs(modelCounters.value.byProvider),
     (item) => item[1],
     'desc',
   )
@@ -194,8 +189,8 @@ const topProvidersData = computed(() => {
     }))
 })
 const topModelsData = computed(() => {
-  return orderBy(
-    toPairs(modelCounters.value.byModel),
+  return useOrderBy(
+    useToPairs(modelCounters.value.byModel),
     (item) => item[1],
     'desc',
   )
@@ -212,7 +207,7 @@ const groupedAvailability = ref(new Map())
 const filteredGroupedAvailability = computed(() => {
   const searchValue = search.value ? search.value.toLowerCase() : ''
   return new Map(
-    orderBy(
+    useOrderBy(
       Array.from(groupedAvailability.value.entries()).filter(
         ([model, modelsMap]) => {
           if (!searchValue) return true
@@ -583,7 +578,7 @@ const setGroupedAvailability = async (type) => {
         undefined,
       ]
       if (row.last_previous_status_dt && row.last_previous_status) {
-        totalTracked = minValue([
+        totalTracked = useMin([
           differenceInSeconds(nowDt, lastPreviousStatusDt),
           maxTotalTracked,
         ])
@@ -652,7 +647,7 @@ const setGroupedAvailability = async (type) => {
     }
     const groupedRow = modelRows.get(providerModelKey)
     const statusDt = new Date(row.status_dt)
-    const secondsSinceStatus = minValue([
+    const secondsSinceStatus = useMin([
       differenceInSeconds(nowDt, statusDt),
       maxTotalTracked,
     ])
@@ -664,7 +659,7 @@ const setGroupedAvailability = async (type) => {
         upTime += secondsSinceStatus
       }
     } else if (!groupedRow.lastStatus) {
-      groupedRow.totalTracked = maxValue([
+      groupedRow.totalTracked = useMax([
         differenceInSeconds(nowDt, statusDt),
         groupedRow.totalTracked,
       ])
@@ -695,7 +690,7 @@ const setGroupedAvailability = async (type) => {
       .filter(([_, modelsMap]) => modelsMap.size > 0)
       .map(([model, modelsMap]) => [
         model,
-        orderBy(
+        useOrderBy(
           Array.from(modelsMap.values()).map((groupedRow) => {
             groupedRow.latenciesRating = groupedRow.latencies.map(
               (latency, index) => {
