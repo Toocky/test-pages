@@ -1,12 +1,5 @@
-.ring-inherit {
-  --tw-ring-color: inherit;
-}
-.ring-current {
-  --tw-ring-color: currentColor;
-}
-.ring-transparent {
-  --tw-ring-color: transparent;
-}
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui";
 .ring-black {
   --tw-ring-color: rgb(0 0 0);
 }

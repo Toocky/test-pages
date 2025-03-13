@@ -60,7 +60,6 @@ useHead({
 
 <style>
 body {
-  @apply antialiased text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
-  font-family: 'Inter', sans-serif;
+  @apply antialiased font-secondary text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
 }
 </style>
