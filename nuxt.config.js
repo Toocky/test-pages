@@ -72,8 +72,7 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
-    // https://tailwindcss.nuxtjs.org/
-    '@nuxtjs/tailwindcss',
+
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
     // https://vite-pwa-org.netlify.app/frameworks/nuxt
@@ -94,17 +93,58 @@ export default defineNuxtConfig({
 
   // Tailwind CSS configuration
   tailwindcss: {
-    cssPath: '~/assets/css/main.css',
-    configPath: 'tailwind.config.js',
-    exposeConfig: false,
-    viewer: true,
-    // Use ESM for postcss configuration
-    postcss: {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
+    config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            primary: ['IBM Plex Sans', 'sans-serif'],
+            secondary: ['Inter', 'sans-serif'],
+          },
+        },
       },
     },
+  },
+
+  typescript: {
+    shim: false,
+  },
+
+  viewport: {
+    breakpoints: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      '2xl': 1536,
+    },
+    defaultBreakpoints: {
+      desktop: 'xl',
+      mobile: 'xs',
+      tablet: 'md',
+    },
+    fallbackBreakpoint: 'lg',
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or "modern"
+        },
+      },
+    },
+/*     plugins: [
+      {
+        name: 'vite-plugin-glob-transform',
+        transform(code: string, id: string) {
+          if (id.includes('nuxt-icons')) {
+            return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
+          }
+          return code;
+        },
+      },
+    ], */
   },
 
   // Color mode configuration
