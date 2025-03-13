@@ -1,33 +1,29 @@
 import { defineNuxtPlugin } from '#app'
+import { use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
+import { BarChart, PieChart } from 'echarts/charts'
+import {
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TitleComponent,
+} from 'echarts/components'
+import { LabelLayout } from 'echarts/features'
+import VChart from 'vue-echarts'
+
+// Register ECharts components
+use([
+  CanvasRenderer,
+  BarChart,
+  PieChart,
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TitleComponent,
+  LabelLayout,
+])
 
 export default defineNuxtPlugin((nuxtApp) => {
   // Register the component globally
-  if (process.client) {
-    const { use } = require('echarts/core')
-    const { CanvasRenderer } = require('echarts/renderers')
-    const { BarChart, PieChart } = require('echarts/charts')
-    const {
-      GridComponent,
-      LegendComponent,
-      TooltipComponent,
-      TitleComponent,
-    } = require('echarts/components')
-    const { LabelLayout } = require('echarts/features')
-    const VChart = require('vue-echarts').default
-    
-    // Register ECharts components
-    use([
-      CanvasRenderer,
-      BarChart,
-      PieChart,
-      GridComponent,
-      LegendComponent,
-      TooltipComponent,
-      TitleComponent,
-      LabelLayout,
-    ])
-    
-    // Register the component globally
-    nuxtApp.vueApp.component('VChart', VChart)
-  }
+  nuxtApp.vueApp.component('VChart', VChart)
 })
