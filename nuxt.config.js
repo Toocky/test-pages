@@ -211,10 +211,10 @@ export default defineNuxtConfig({
           if (id.includes('nuxt-icons')) {
             return code.replace(
               /as:\s*['"]raw['"]/g,
-              'query: "?raw", import: "default"'
-            );
+              'query: "?raw", import: "default"',
+            )
           }
-          return code;
+          return code
         },
       },
     ],
@@ -223,14 +223,14 @@ export default defineNuxtConfig({
         output: {
           // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
           sanitizeFileName(name) {
-            const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g;
-            const DRIVE_LETTER_REGEX = /^[a-z]:/i;
-            const match = DRIVE_LETTER_REGEX.exec(name);
-            const driveLetter = match ? match[0] : "";
+            const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g
+            const DRIVE_LETTER_REGEX = /^[a-z]:/i
+            const match = DRIVE_LETTER_REGEX.exec(name)
+            const driveLetter = match ? match[0] : ''
             return (
               driveLetter +
-              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
-            );
+              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
+            )
           },
         },
       },
