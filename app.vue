@@ -1,4 +1,7 @@
 <script setup>
+// Import useHead from #imports instead of @unhead/vue
+import { useHead } from '#imports';
+
 // Dynamic head configuration can be added here if needed
 // For example, you could add a title template
 useHead({
