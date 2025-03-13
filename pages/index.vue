@@ -6,35 +6,27 @@ import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters'
 import { ref, computed, watch, onMounted } from 'vue'
 import { useApi } from '~/composables/use-api'
 
-// Only import and use echarts on client-side
-if (process.client) {
-  // Use dynamic imports for client-side only
-  Promise.all([
-    import('echarts/core'),
-    import('echarts/renderers'),
-    import('echarts/charts'),
-    import('echarts/components'),
-    import('echarts/features'),
-  ]).then(
-    ([
-      { use },
-      { CanvasRenderer },
-      { BarChart, PieChart },
-      { GridComponent, LegendComponent, TooltipComponent },
-      { LabelLayout },
-    ]) => {
-      use([
-        BarChart,
-        CanvasRenderer,
-        PieChart,
-        GridComponent,
-        LabelLayout,
-        TooltipComponent,
-        LegendComponent,
-      ])
-    },
-  )
-}
+// Import echarts directly
+import { use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
+import { BarChart, PieChart } from 'echarts/charts'
+import {
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+} from 'echarts/components'
+import { LabelLayout } from 'echarts/features'
+
+// Register ECharts components
+use([
+  BarChart,
+  CanvasRenderer,
+  PieChart,
+  GridComponent,
+  LabelLayout,
+  TooltipComponent,
+  LegendComponent,
+])
 
 // Define Model type since we don't have the generated types
 type Model = {

@@ -1,42 +1,32 @@
 import { defineNuxtPlugin } from '#app'
+import { use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
+import { BarChart, PieChart } from 'echarts/charts'
+import {
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TitleComponent,
+} from 'echarts/components'
+import { LabelLayout } from 'echarts/features'
+import VChart, { THEME_KEY } from 'vue-echarts'
 
-// Only run on client-side
-export default defineNuxtPlugin(async (nuxtApp) => {
-  // Only import and register ECharts on client-side
-  if (process.client) {
-    // Use dynamic imports for client-side only
-    const [
-      { use },
-      { CanvasRenderer },
-      { BarChart, PieChart },
-      { GridComponent, LegendComponent, TooltipComponent, TitleComponent },
-      { LabelLayout },
-      VueECharts,
-    ] = await Promise.all([
-      import('echarts/core'),
-      import('echarts/renderers'),
-      import('echarts/charts'),
-      import('echarts/components'),
-      import('echarts/features'),
-      import('vue-echarts'),
-    ])
+// Register ECharts components
+use([
+  CanvasRenderer,
+  BarChart,
+  PieChart,
+  GridComponent,
+  LegendComponent,
+  TooltipComponent,
+  TitleComponent,
+  LabelLayout,
+])
 
-    // Register ECharts components
-    use([
-      CanvasRenderer,
-      BarChart,
-      PieChart,
-      GridComponent,
-      LegendComponent,
-      TooltipComponent,
-      TitleComponent,
-      LabelLayout,
-    ])
-
-    // Provide the theme key
-    nuxtApp.vueApp.provide(VueECharts.THEME_KEY, 'light')
-
-    // Register the component globally
-    nuxtApp.vueApp.component('VChart', VueECharts.default)
-  }
+export default defineNuxtPlugin((nuxtApp) => {
+  // Provide the theme key
+  nuxtApp.vueApp.provide(THEME_KEY, 'dark')
+  
+  // Register the component globally
+  nuxtApp.vueApp.component('VChart', VChart)
 })

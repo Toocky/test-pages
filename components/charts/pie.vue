@@ -9,16 +9,9 @@ import type {
   TooltipComponentOption,
 } from 'echarts/components'
 
-// VChart will be imported dynamically on the client-side
+// Import VChart directly
 import { ref, computed, watch } from 'vue'
-let VChart = null
-
-// Use dynamic import for client-side only
-if (process.client) {
-  import('vue-echarts').then((module) => {
-    VChart = module.default
-  })
-}
+import VChart from 'vue-echarts'
 
 type PieOption = ComposeOption<
   | GridComponentOption
