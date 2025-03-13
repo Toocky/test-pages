@@ -49,10 +49,10 @@ const modelsPerPage = 20
 const viewport = useViewport()
 const api = useApi()
 // Use lodash functions directly
-const toPairs = useToPairs()
-const orderBy = useOrderBy()
-const minValue = useMin()
-const maxValue = useMax()
+const toPairs = useToPairs
+const orderBy = useOrderBy
+const minValue = useMin
+const maxValue = useMax
 
 const statRows = [
   {
