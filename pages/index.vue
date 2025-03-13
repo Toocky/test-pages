@@ -126,7 +126,6 @@ const calculatePercentage = (value: number, total: number) => {
   return (value / total) * 100
 }
 
-
 // Use API data
 const { data: modelsRef } = await api('models', {})
 const models = computed<Map<string, Model>>(() => {
@@ -244,7 +243,7 @@ const paginatedGroupedAvailability = computed(() => {
 })
 const setGroupedAvailability = async (type) => {
   loading.value = true
-  
+
   const { data: modelsAvailabilityRef } = await api('models/availability', {
     params: { type: type !== 'all' ? type : undefined, period: PERIOD_DAYS },
     server: false,
