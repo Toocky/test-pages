@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     classSuffix: '',
     dataValue: 'dark',
     forcedTheme: 'dark',
+    classPrefix: '',
   },
 
   icon: {
