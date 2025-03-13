@@ -776,7 +776,7 @@ onMounted(async () => {
         <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2 gap-4">
           <template v-for="(row, i) of statRows">
             <div class="flex flex-col gap-0.5">
-              <div class="text-gray-400 text-sm font-medium">
+              <div class="text-slate-400 text-sm font-medium">
                 {{ row.name }}
               </div>
               <div class="text-2xl md:text-3xl font-semibold">
@@ -790,7 +790,7 @@ onMounted(async () => {
             >
               <div
                 v-if="(i + 1) % 2 === 0 && i < statRows.length - 1"
-                class="col-span-2 h-0px border dark:border-gray-700"
+                class="col-span-2 h-0px border dark:border-slate-700"
               ></div>
             </template>
             <template v-else>
