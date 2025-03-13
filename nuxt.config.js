@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       collections: ['heroicons-outline', 'simple-icons'],
     },
   },
-/*   router: {
+  /*   router: {
     base: `/${process.env.npm_package_name}` || '',
   },
   // Runtime config
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     baseURL: `/${process.env.npm_package_name}/`, // baseURL: '/<repository>/'
-    buildAssetsDir: 'assets', 
+    buildAssetsDir: 'assets',
     head: {
       title: 'APIpie.ai - Global AI Health Dashboard',
       meta: [
