@@ -749,12 +749,12 @@ onMounted(async () => {
     </div>
     <div class="grid gap grid-cols-1 xl:grid-cols-2 gap-5">
       <u-card
-        class="md:h-[192px] xl:h-[368px]"
+        class="md:h-[300px] xl:h-[368px]"
         :ui="{ body: { base: 'h-full' } }"
       >
         <div class="flex flex-col md:flex-row gap-5 md:h-full">
           <charts-pie
-            class="h-[190px] md:h-full"
+            class="h-[300px] md:h-full"
             name="Top Providers"
             :data="topProvidersData"
             :legend-position="
@@ -765,7 +765,7 @@ onMounted(async () => {
             class="md:rotate-180 h-0.5 md:h-0 w-full md:w-[4px] dark:bg-gray-700"
           ></div>
           <charts-pie
-            class="h-[190px] md:h-full"
+            class="h-[300px] md:h-full"
             name="Top Models"
             :data="topModelsData"
             :legend-position="
