@@ -3,31 +3,6 @@ export default defineNuxtConfig({
   // Source directory
   srcDir: './',
   
-
-  modules: [
-    // https://color-mode.nuxtjs.org/
-    '@nuxtjs/color-mode',
-    // https://vite-pwa-org.netlify.app/frameworks/nuxt
-    '@vite-pwa/nuxt',
-    // https://ui.nuxt.com/
-    '@nuxt/ui',
-    // https://nuxt.com/modules/lodash
-    'nuxt-lodash',
-    // https://nuxt.com/modules/viewport
-    'nuxt-viewport',
-    // https://nuxt.com/modules/open-fetch
-    'nuxt-open-fetch',
-    // https://nuxt.com/modules/icons
-    'nuxt-icons',
-    // https://vueuse.org/nuxt/README.html
-    '@vueuse/nuxt',
-    '@formkit/auto-animate/nuxt',
-    '@nuxt/fonts',
-  ],
-  
-  // Source directory
-  srcDir: './',
-  
   // Target: static site generation
   ssr: true,
 
@@ -71,7 +46,26 @@ export default defineNuxtConfig({
   components: true,
 
   // Modules
-
+  modules: [
+    // https://color-mode.nuxtjs.org/
+    '@nuxtjs/color-mode',
+    // https://vite-pwa-org.netlify.app/frameworks/nuxt
+    '@vite-pwa/nuxt',
+    // https://ui.nuxt.com/
+    '@nuxt/ui',
+    // https://nuxt.com/modules/lodash
+    'nuxt-lodash',
+    // https://nuxt.com/modules/viewport
+    'nuxt-viewport',
+    // https://nuxt.com/modules/open-fetch
+    'nuxt-open-fetch',
+    // https://nuxt.com/modules/icons
+    'nuxt-icons',
+    // https://vueuse.org/nuxt/README.html
+    '@vueuse/nuxt',
+    '@formkit/auto-animate/nuxt',
+    '@nuxt/fonts',
+  ],
 
   // Tailwind CSS configuration
   tailwindcss: {
