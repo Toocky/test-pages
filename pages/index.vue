@@ -1,29 +1,33 @@
 <script setup lang="ts">
 import { differenceInHours, differenceInSeconds, sub, min } from 'date-fns'
-import { use } from 'echarts/core'
-import { CanvasRenderer } from 'echarts/renderers'
-import { BarChart, PieChart } from 'echarts/charts'
-import {
-  GridComponent,
-  LegendComponent,
-  TooltipComponent,
-} from 'echarts/components'
-import { LabelLayout } from 'echarts/features'
 import type { IModelAvailabilityRow, IStatusInfo } from '~/interfaces/model'
 import { parseMilliseconds } from '~/utils/date'
 import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters'
 import { ref, computed, watch, onMounted } from 'vue'
 import { useApi } from '~/composables/use-api'
 
-use([
-  BarChart,
-  CanvasRenderer,
-  PieChart,
-  GridComponent,
-  LabelLayout,
-  TooltipComponent,
-  LegendComponent,
-])
+// Only import and use echarts on client-side
+if (process.client) {
+  const { use } = require('echarts/core')
+  const { CanvasRenderer } = require('echarts/renderers')
+  const { BarChart, PieChart } = require('echarts/charts')
+  const {
+    GridComponent,
+    LegendComponent,
+    TooltipComponent,
+  } = require('echarts/components')
+  const { LabelLayout } = require('echarts/features')
+
+  use([
+    BarChart,
+    CanvasRenderer,
+    PieChart,
+    GridComponent,
+    LabelLayout,
+    TooltipComponent,
+    LegendComponent,
+  ])
+}
 
 // Define Model type since we don't have the generated types
 type Model = {
