@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Import types for TypeScript
 import type { PieSeriesOption } from 'echarts/charts'
 import type { ComposeOption } from 'echarts/core'
 import type {
@@ -7,7 +8,12 @@ import type {
   TitleComponentOption,
   TooltipComponentOption,
 } from 'echarts/components'
-import VChart from 'vue-echarts'
+
+// VChart will be imported dynamically on the client-side
+let VChart = null
+if (process.client) {
+  VChart = require('vue-echarts').default
+}
 
 type PieOption = ComposeOption<
   | GridComponentOption
@@ -97,5 +103,7 @@ watch(
 </script>
 
 <template>
-  <v-chart ref="chartRef" :option="option" autoresize />
+  <client-only>
+    <v-chart ref="chartRef" :option="option" autoresize />
+  </client-only>
 </template>
