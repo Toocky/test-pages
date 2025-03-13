@@ -37,9 +37,15 @@ export default defineNuxtConfig({
         : '/',
     },
   },
-
+  devtools: {
+    // Enable devtools (default: true)
+    enabled: true,
+    // VS Code Server options
+    vscode: {},
+    // ...other options
+  },
   // App configuration
-  app: {
+   app: {
     head: {
       title: 'APIpie.ai - Global AI Health Dashboard',
       meta: [
@@ -117,6 +123,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@formkit/auto-animate/nuxt',
     '@nuxt/fonts',
+    '@nuxt/devtools',
   ],
 
   // Tailwind CSS configuration
@@ -131,10 +138,6 @@ export default defineNuxtConfig({
         },
       },
     },
-  },
-
-  typescript: {
-    shim: false,
   },
 
   viewport: {
