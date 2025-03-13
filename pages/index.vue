@@ -749,7 +749,7 @@ onMounted(async () => {
     </div>
     <div class="grid gap grid-cols-1 xl:grid-cols-2 gap-5">
       <u-card
-        class="md:h-[192px] xl:h-[368px] "
+        class="md:h-[192px] xl:h-[368px]"
         :ui="{ body: { base: 'h-full' } }"
       >
         <div class="flex flex-col md:flex-row gap-5 md:h-full">
@@ -774,7 +774,7 @@ onMounted(async () => {
           ></charts-pie>
         </div>
       </u-card>
-      <u-card class="md:h-[192px] xl:h-[368px] ">
+      <u-card class="md:h-[192px] xl:h-[368px]">
         <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2 gap-4">
           <template v-for="(row, i) of statRows">
             <div class="flex flex-col gap-0.5">
@@ -804,7 +804,7 @@ onMounted(async () => {
           </template>
         </div>
       </u-card>
-      <u-card class="xl:col-span-2 ">
+      <u-card class="xl:col-span-2">
         <div class="flex flex-col gap-5">
           <u-progress v-if="loading" animation="carousel"></u-progress>
           <div class="text-sm font-semibold">Availability last 30 days</div>
