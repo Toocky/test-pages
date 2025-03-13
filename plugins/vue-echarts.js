@@ -31,7 +31,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     // Provide the theme key
     nuxtApp.vueApp.provide(THEME_KEY, 'light')
-    
+
     // Register the component globally
     nuxtApp.vueApp.component('VChart', VChart)
   }

@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     // ...other options
   },
   // App configuration
-   app: {
+  app: {
     head: {
       title: 'APIpie.ai - Global AI Health Dashboard',
       meta: [
