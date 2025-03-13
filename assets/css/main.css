@@ -30,7 +30,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Ring color utilities - copied from original project */
+/* Ring color utilities */
 .ring-inherit {
   --tw-ring-color: inherit;
 }
@@ -46,19 +46,121 @@ body {
 .ring-white {
   --tw-ring-color: rgb(255 255 255);
 }
+.ring-slate-50 {
+  --tw-ring-color: rgb(248 250 252);
+}
+.ring-slate-100 {
+  --tw-ring-color: rgb(241 245 249);
+}
+.ring-slate-200 {
+  --tw-ring-color: rgb(226 232 240);
+}
+.ring-slate-300 {
+  --tw-ring-color: rgb(203 213 225);
+}
+.ring-slate-400 {
+  --tw-ring-color: rgb(148 163 184);
+}
+.ring-slate-500 {
+  --tw-ring-color: rgb(100 116 139);
+}
+.ring-slate-600 {
+  --tw-ring-color: rgb(71 85 105);
+}
+.ring-slate-700 {
+  --tw-ring-color: rgb(51 65 85);
+}
+.ring-slate-800 {
+  --tw-ring-color: rgb(30 41 59);
+}
+.ring-slate-900 {
+  --tw-ring-color: rgb(15 23 42);
+}
+.ring-slate-950 {
+  --tw-ring-color: rgb(2 6 23);
+}
+.ring-gray-50 {
+  --tw-ring-color: rgb(249 250 251);
+}
+.ring-gray-100 {
+  --tw-ring-color: rgb(243 244 246);
+}
+.ring-gray-200 {
+  --tw-ring-color: rgb(229 231 235);
+}
+.ring-gray-300 {
+  --tw-ring-color: rgb(209 213 219);
+}
+.ring-gray-400 {
+  --tw-ring-color: rgb(156 163 175);
+}
+.ring-gray-500 {
+  --tw-ring-color: rgb(107 114 128);
+}
+.ring-gray-600 {
+  --tw-ring-color: rgb(75 85 99);
+}
+.ring-gray-700 {
+  --tw-ring-color: rgb(55 65 81);
+}
+.ring-gray-800 {
+  --tw-ring-color: rgb(31 41 55);
+}
+.ring-gray-900 {
+  --tw-ring-color: rgb(17 24 39);
+}
+.ring-gray-950 {
+  --tw-ring-color: rgb(3 7 18);
+}
 
 /* Color utilities for badges */
+.ring-emerald-50 {
+  --tw-ring-color: rgb(236 253 245);
+}
+.ring-emerald-100 {
+  --tw-ring-color: rgb(209 250 229);
+}
+.ring-emerald-200 {
+  --tw-ring-color: rgb(167 243 208);
+}
+.ring-emerald-300 {
+  --tw-ring-color: rgb(110 231 183);
+}
 .ring-emerald-400 {
   --tw-ring-color: rgb(52 211 153);
 }
 .ring-emerald-500 {
   --tw-ring-color: rgb(16 185 129);
 }
+.ring-amber-50 {
+  --tw-ring-color: rgb(255 251 235);
+}
+.ring-amber-100 {
+  --tw-ring-color: rgb(254 243 199);
+}
+.ring-amber-200 {
+  --tw-ring-color: rgb(253 230 138);
+}
+.ring-amber-300 {
+  --tw-ring-color: rgb(252 211 77);
+}
 .ring-amber-400 {
   --tw-ring-color: rgb(251 191 36);
 }
 .ring-amber-500 {
   --tw-ring-color: rgb(245 158 11);
+}
+.ring-red-50 {
+  --tw-ring-color: rgb(254 242 242);
+}
+.ring-red-100 {
+  --tw-ring-color: rgb(254 226 226);
+}
+.ring-red-200 {
+  --tw-ring-color: rgb(254 202 202);
+}
+.ring-red-300 {
+  --tw-ring-color: rgb(252 165 165);
 }
 .ring-red-400 {
   --tw-ring-color: rgb(248 113 113);
@@ -68,25 +170,130 @@ body {
 }
 
 /* Background colors for status indicators */
+.bg-emerald-50 {
+  background-color: rgb(236 253 245);
+}
+.bg-emerald-100 {
+  background-color: rgb(209 250 229);
+}
+.bg-emerald-200 {
+  background-color: rgb(167 243 208);
+}
+.bg-emerald-300 {
+  background-color: rgb(110 231 183);
+}
+.bg-emerald-400 {
+  background-color: rgb(52 211 153);
+}
 .bg-emerald-500 {
   background-color: rgb(16 185 129);
+}
+.bg-emerald-600 {
+  background-color: rgb(5 150 105);
+}
+.bg-emerald-700 {
+  background-color: rgb(4 120 87);
+}
+.bg-amber-50 {
+  background-color: rgb(255 251 235);
+}
+.bg-amber-100 {
+  background-color: rgb(254 243 199);
+}
+.bg-amber-200 {
+  background-color: rgb(253 230 138);
+}
+.bg-amber-300 {
+  background-color: rgb(252 211 77);
+}
+.bg-amber-400 {
+  background-color: rgb(251 191 36);
 }
 .bg-amber-500 {
   background-color: rgb(245 158 11);
 }
+.bg-red-50 {
+  background-color: rgb(254 242 242);
+}
+.bg-red-100 {
+  background-color: rgb(254 226 226);
+}
+.bg-red-200 {
+  background-color: rgb(254 202 202);
+}
+.bg-red-300 {
+  background-color: rgb(252 165 165);
+}
+.bg-red-400 {
+  background-color: rgb(248 113 113);
+}
 .bg-red-500 {
   background-color: rgb(239 68 68);
+}
+.bg-gray-50 {
+  background-color: rgb(249 250 251);
+}
+.bg-gray-100 {
+  background-color: rgb(243 244 246);
+}
+.bg-gray-200 {
+  background-color: rgb(229 231 235);
+}
+.bg-gray-300 {
+  background-color: rgb(209 213 219);
+}
+.bg-gray-400 {
+  background-color: rgb(156 163 175);
+}
+.bg-gray-500 {
+  background-color: rgb(107 114 128);
+}
+.bg-gray-600 {
+  background-color: rgb(75 85 99);
 }
 .bg-gray-700 {
   background-color: rgb(55 65 81);
 }
+.bg-gray-800 {
+  background-color: rgb(31 41 55);
+}
+.bg-gray-900 {
+  background-color: rgb(17 24 39);
+}
+.bg-gray-950 {
+  background-color: rgb(3 7 18);
+}
 
 /* Text colors */
+.text-emerald-50 {
+  color: rgb(236 253 245);
+}
+.text-emerald-100 {
+  color: rgb(209 250 229);
+}
+.text-emerald-200 {
+  color: rgb(167 243 208);
+}
+.text-emerald-300 {
+  color: rgb(110 231 183);
+}
 .text-emerald-400 {
   color: rgb(52 211 153);
 }
 .text-emerald-500 {
   color: rgb(16 185 129);
+}
+.text-amber-50 {
+  color: rgb(255 251 235);
+}
+.text-amber-100 {
+  color: rgb(254 243 199);
+}
+.text-amber-200 {
+  color: rgb(253 230 138);
+}
+.text-amber-300 {
+  color: rgb(252 211 77);
 }
 .text-amber-400 {
   color: rgb(251 191 36);
@@ -94,9 +301,95 @@ body {
 .text-amber-500 {
   color: rgb(245 158 11);
 }
+.text-red-50 {
+  color: rgb(254 242 242);
+}
+.text-red-100 {
+  color: rgb(254 226 226);
+}
+.text-red-200 {
+  color: rgb(254 202 202);
+}
+.text-red-300 {
+  color: rgb(252 165 165);
+}
 .text-red-400 {
   color: rgb(248 113 113);
 }
 .text-red-500 {
   color: rgb(239 68 68);
+}
+.text-slate-50 {
+  color: rgb(248 250 252);
+}
+.text-slate-100 {
+  color: rgb(241 245 249);
+}
+.text-slate-200 {
+  color: rgb(226 232 240);
+}
+.text-slate-300 {
+  color: rgb(203 213 225);
+}
+.text-slate-400 {
+  color: rgb(148 163 184);
+}
+.text-slate-500 {
+  color: rgb(100 116 139);
+}
+.text-slate-600 {
+  color: rgb(71 85 105);
+}
+.text-slate-700 {
+  color: rgb(51 65 85);
+}
+.text-slate-800 {
+  color: rgb(30 41 59);
+}
+.text-slate-900 {
+  color: rgb(15 23 42);
+}
+.text-slate-950 {
+  color: rgb(2 6 23);
+}
+.text-gray-50 {
+  color: rgb(249 250 251);
+}
+.text-gray-100 {
+  color: rgb(243 244 246);
+}
+.text-gray-200 {
+  color: rgb(229 231 235);
+}
+.text-gray-300 {
+  color: rgb(209 213 219);
+}
+.text-gray-400 {
+  color: rgb(156 163 175);
+}
+.text-gray-500 {
+  color: rgb(107 114 128);
+}
+.text-gray-600 {
+  color: rgb(75 85 99);
+}
+.text-gray-700 {
+  color: rgb(55 65 81);
+}
+.text-gray-800 {
+  color: rgb(31 41 55);
+}
+.text-gray-900 {
+  color: rgb(17 24 39);
+}
+.text-gray-950 {
+  color: rgb(3 7 18);
+}
+
+/* Border colors */
+.border-gray-700 {
+  border-color: rgb(55 65 81);
+}
+.border-gray-800 {
+  border-color: rgb(31 41 55);
 }
