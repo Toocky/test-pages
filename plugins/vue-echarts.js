@@ -11,14 +11,14 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       { BarChart, PieChart },
       { GridComponent, LegendComponent, TooltipComponent, TitleComponent },
       { LabelLayout },
-      VueECharts
+      VueECharts,
     ] = await Promise.all([
       import('echarts/core'),
       import('echarts/renderers'),
       import('echarts/charts'),
       import('echarts/components'),
       import('echarts/features'),
-      import('vue-echarts')
+      import('vue-echarts'),
     ])
 
     // Register ECharts components
@@ -35,7 +35,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
     // Provide the theme key
     nuxtApp.vueApp.provide(VueECharts.THEME_KEY, 'light')
-    
+
     // Register the component globally
     nuxtApp.vueApp.component('VChart', VueECharts.default)
   }

@@ -15,7 +15,7 @@ let VChart = null
 
 // Use dynamic import for client-side only
 if (process.client) {
-  import('vue-echarts').then(module => {
+  import('vue-echarts').then((module) => {
     VChart = module.default
   })
 }

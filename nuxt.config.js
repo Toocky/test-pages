@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   srcDir: './',
 
   // Target: static site generation
-  ssr: true,
+  ssr: false,
 
   // Static site generation
   nitro: {

@@ -14,24 +14,26 @@ if (process.client) {
     import('echarts/renderers'),
     import('echarts/charts'),
     import('echarts/components'),
-    import('echarts/features')
-  ]).then(([
-    { use },
-    { CanvasRenderer },
-    { BarChart, PieChart },
-    { GridComponent, LegendComponent, TooltipComponent },
-    { LabelLayout }
-  ]) => {
-    use([
-      BarChart,
-      CanvasRenderer,
-      PieChart,
-      GridComponent,
-      LabelLayout,
-      TooltipComponent,
-      LegendComponent,
-    ])
-  })
+    import('echarts/features'),
+  ]).then(
+    ([
+      { use },
+      { CanvasRenderer },
+      { BarChart, PieChart },
+      { GridComponent, LegendComponent, TooltipComponent },
+      { LabelLayout },
+    ]) => {
+      use([
+        BarChart,
+        CanvasRenderer,
+        PieChart,
+        GridComponent,
+        LabelLayout,
+        TooltipComponent,
+        LegendComponent,
+      ])
+    },
+  )
 }
 
 // Define Model type since we don't have the generated types
