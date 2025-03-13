@@ -55,7 +55,7 @@
     "prettier": "^3.5.3",
     "push-dir": "^0.4.1",
     "typescript": "^5.4.5",
-    "vue-eslint-parser": "^9.4.2",
+    "vue-eslint-parser": "^10.1.1",
     "vue-router": "^4.5.0",
     "zod": "^3.24.2"
   },
