@@ -3,13 +3,17 @@ export default defineNuxtConfig({
   // Target: static site generation
   ssr: true,
 
-  target: 'static',
+  // Static site generation
+  nitro: {
+    preset: 'static',
+  },
 
   // GitHub Pages deployment
   app: {
     baseURL: process.env.npm_package_name
       ? `/${process.env.npm_package_name}/`
       : '/',
+    // Head configuration
     head: {
       title: 'APIpie.ai - Global AI Health Dashboard',
       meta: [
