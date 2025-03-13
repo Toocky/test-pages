@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   // Source directory
   srcDir: './',
-  
+
   // Target: static site generation
   ssr: true,
 
@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      failOnError: false, 
+      failOnError: false,
       autoSubfolderIndex: true,
     },
   },
@@ -91,7 +91,6 @@ export default defineNuxtConfig({
     },
   },
 
-
   // Plugins
   plugins: ['~/plugins/vue-echarts.js'],
 
@@ -154,8 +153,6 @@ export default defineNuxtConfig({
     },
     fallbackBreakpoint: 'lg',
   },
-  
-
 
   // PWA configuration
   pwa: {
@@ -211,10 +208,10 @@ export default defineNuxtConfig({
           if (id.includes('nuxt-icons')) {
             return code.replace(
               /as:\s*['"]raw['"]/g,
-              'query: "?raw", import: "default"'
-            );
+              'query: "?raw", import: "default"',
+            )
           }
-          return code;
+          return code
         },
       },
     ],
