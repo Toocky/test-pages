@@ -126,31 +126,16 @@ export default defineNuxtConfig({
     fallbackBreakpoint: 'lg',
   },
 
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler', // or "modern"
-        },
-      },
-    },
-/*     plugins: [
-      {
-        name: 'vite-plugin-glob-transform',
-        transform(code: string, id: string) {
-          if (id.includes('nuxt-icons')) {
-            return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
-          }
-          return code;
-        },
-      },
-    ], */
+  css: ['~/assets/css/main.scss'],
+
+  colorMode: {
+    preference: 'dark',
   },
 
-  // Color mode configuration
-  colorMode: {
-    classSuffix: '',
-    preference: 'dark',
+  icon: {
+    serverBundle: {
+      collections: ['heroicons-outline', 'simple-icons'],
+    },
   },
 
   // PWA configuration
@@ -193,6 +178,24 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ['echarts', 'vue-echarts'],
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or "modern"
+        },
+      },
+    },
+/*     plugins: [
+      {
+        name: 'vite-plugin-glob-transform',
+        transform(code: string, id: string) {
+          if (id.includes('nuxt-icons')) {
+            return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
+          }
+          return code;
+        },
+      },
+    ], */
   },
 
   // Auto-import composables
