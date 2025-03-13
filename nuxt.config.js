@@ -125,9 +125,6 @@ export default defineNuxtConfig({
     },
     fallbackBreakpoint: 'lg',
   },
-
-  css: ['~/assets/css/main.scss'],
-
   colorMode: {
     preference: 'dark',
   },
@@ -185,17 +182,17 @@ export default defineNuxtConfig({
         },
       },
     },
-/*     plugins: [
+    plugins: [
       {
         name: 'vite-plugin-glob-transform',
-        transform(code: string, id: string) {
+        transform(code, id) {
           if (id.includes('nuxt-icons')) {
             return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
           }
           return code;
         },
       },
-    ], */
+    ],
   },
 
   // Auto-import composables
