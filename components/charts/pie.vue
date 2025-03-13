@@ -101,7 +101,5 @@ watch(
 </script>
 
 <template>
-  <client-only>
-    <v-chart ref="chartRef" :option="option" autoresize />
-  </client-only>
+  <v-chart ref="chartRef" :option="option" autoresize />
 </template>

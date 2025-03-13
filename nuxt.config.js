@@ -21,6 +21,10 @@ export default defineNuxtConfig({
 
   colorMode: {
     preference: 'dark',
+    fallback: 'dark',
+    classSuffix: '',
+    dataValue: 'dark',
+    forcedTheme: 'dark',
   },
 
   icon: {
