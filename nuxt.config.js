@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Target: static site generation
-  ssr: false,
+  ssr: true,
 
   target: 'static',
 
@@ -62,7 +62,7 @@ export default defineNuxtConfig({
   },
 
   // Global CSS
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.scss'],
 
   // Plugins
   plugins: ['~/plugins/vue-echarts.js'],
