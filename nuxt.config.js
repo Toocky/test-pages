@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // Source directory
+  srcDir: './',
+  
   // Target: static site generation
   ssr: true,
 
