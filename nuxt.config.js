@@ -72,7 +72,6 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
-
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
     // https://vite-pwa-org.netlify.app/frameworks/nuxt
@@ -187,9 +186,12 @@ export default defineNuxtConfig({
         name: 'vite-plugin-glob-transform',
         transform(code, id) {
           if (id.includes('nuxt-icons')) {
-            return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
+            return code.replace(
+              /as:\s*['"]raw['"]/g,
+              'query: "?raw", import: "default"',
+            )
           }
-          return code;
+          return code
         },
       },
     ],
