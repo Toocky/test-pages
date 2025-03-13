@@ -1,105 +1,155 @@
-<script setup lang="ts">
-// Import types for TypeScript
-import type { PieSeriesOption } from 'echarts/charts'
-import type { ComposeOption } from 'echarts/core'
-import type {
-  GridComponentOption,
-  LegendComponentOption,
-  TitleComponentOption,
-  TooltipComponentOption,
-} from 'echarts/components'
+<template>
+  <v-chart class="chart" :option="option" autoresize />
+</template>
 
-// Import VChart directly
-import { ref, computed, watch } from 'vue'
-import VChart from 'vue-echarts'
+<script setup>
+import { use } from 'echarts/core';
+import { CanvasRenderer } from 'echarts/renderers';
+import { PieChart } from 'echarts/charts';
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+} from 'echarts/components';
+import VChart, { THEME_KEY } from 'vue-echarts';
+import { ref, provide, computed, watch } from 'vue';
 
-type PieOption = ComposeOption<
-  | GridComponentOption
-  | PieSeriesOption
-  | TitleComponentOption
-  | TooltipComponentOption
-  | LegendComponentOption
->
+use([
+  CanvasRenderer,
+  PieChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+]);
 
-const chartRef = ref(null)
-const props = withDefaults(
-  defineProps<{
-    name: string
-    data: { name: string; value: number | string }[]
-    legendPosition: 'bottom' | 'right'
-  }>(),
-  { legendPosition: 'bottom' },
-)
+provide(THEME_KEY, 'dark');
+
+const props = defineProps({
+  name: {
+    type: String,
+    required: true
+  },
+  data: {
+    type: Array,
+    required: true
+  },
+  legendPosition: {
+    type: String,
+    default: 'bottom'
+  }
+});
+
 const seriesProps = computed(() => {
   switch (props.legendPosition) {
     case 'right':
       return {
-        radius: ['55%', '50%'],
+        radius: '55%',
         center: ['25%', '50%'],
       }
     case 'bottom':
       return {
-        radius: ['65%', '70%'],
+        radius: '65%',
         center: ['50%', '30%'],
       }
   }
-})
+});
+
 const legendProps = computed(() => {
   switch (props.legendPosition) {
     case 'right':
-      return { height: '100%', left: '40%', top: '15%' }
+      return { 
+        orient: 'vertical',
+        height: '100%', 
+        left: '40%', 
+        top: '15%' 
+      }
     case 'bottom':
       return {
+        orient: 'vertical',
         height: '50%',
         top: '60%',
         left: 'left',
       }
   }
-})
+});
 
-const buildOption = (): PieOption => {
-  return {
-    legend: {
-      icon: 'square',
-      orient: 'vertical',
-      type: 'scroll',
-      textStyle: {
-        color: '#E5E7EBFF',
-      },
-      ...legendProps.value,
+const option = ref({
+  legend: {
+    icon: 'square',
+    type: 'scroll',
+    textStyle: {
+      color: '#E5E7EBFF',
     },
-    series: [
-      {
-        name: props.name,
-        type: 'pie',
-        avoidLabelOverlap: false,
-        label: {
-          show: true,
-          formatter: () => props.name,
-          position: 'center',
-          color: '#94A3B8',
-          fontSize: '12px',
-        },
-        labelLine: {
-          show: false,
-        },
-        data: props.data,
-        ...seriesProps.value,
+    ...legendProps.value,
+  },
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c} ({d}%)',
+  },
+  series: [
+    {
+      name: props.name,
+      type: 'pie',
+      avoidLabelOverlap: false,
+      label: {
+        show: true,
+        formatter: () => props.name,
+        position: 'center',
+        color: '#94A3B8',
+        fontSize: '12px',
       },
-    ],
-  }
-}
-
-const option = ref<PieOption>(buildOption())
+      labelLine: {
+        show: false,
+      },
+      data: props.data,
+      ...seriesProps.value,
+    },
+  ],
+});
 
 watch(
   () => [props.data, props.name, props.legendPosition],
   () => {
-    option.value = buildOption()
-  },
-)
+    option.value = {
+      legend: {
+        icon: 'square',
+        type: 'scroll',
+        textStyle: {
+          color: '#E5E7EBFF',
+        },
+        ...legendProps.value,
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b} : {c} ({d}%)',
+      },
+      series: [
+        {
+          name: props.name,
+          type: 'pie',
+          avoidLabelOverlap: false,
+          label: {
+            show: true,
+            formatter: () => props.name,
+            position: 'center',
+            color: '#94A3B8',
+            fontSize: '12px',
+          },
+          labelLine: {
+            show: false,
+          },
+          data: props.data,
+          ...seriesProps.value,
+        },
+      ],
+    };
+  }
+);
 </script>
 
-<template>
-  <v-chart ref="chartRef" :option="option" autoresize />
-</template>
+<style scoped>
+.chart {
+  height: 100%;
+  width: 100%;
+}
+</style>
