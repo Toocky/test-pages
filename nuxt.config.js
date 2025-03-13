@@ -28,7 +28,9 @@ export default defineNuxtConfig({
       collections: ['heroicons-outline', 'simple-icons'],
     },
   },
-
+/*   router: {
+    base: `/${process.env.npm_package_name}` || '',
+  },
   // Runtime config
   runtimeConfig: {
     public: {
@@ -36,7 +38,7 @@ export default defineNuxtConfig({
         ? `/${process.env.npm_package_name}/`
         : '/',
     },
-  },
+  }, */
   devtools: {
     // Enable devtools (default: true)
     enabled: true,
@@ -46,6 +48,8 @@ export default defineNuxtConfig({
   },
   // App configuration
   app: {
+    baseURL: `/${process.env.npm_package_name}/`, // baseURL: '/<repository>/'
+    buildAssetsDir: 'assets', 
     head: {
       title: 'APIpie.ai - Global AI Health Dashboard',
       meta: [
