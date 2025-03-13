@@ -1,4 +1,5 @@
 <script setup>
+import { useHead } from '@unhead/vue';
 const config = useRuntimeConfig();
 
 useHead({
