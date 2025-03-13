@@ -3,38 +3,7 @@ export default defineNuxtConfig({
   // Source directory
   srcDir: './',
   
-  // Target: static site generation
-  ssr: true,
 
-  // Static site generation
-  nitro: {
-    preset: 'static',
-    prerender: {
-      crawlLinks: true,
-      failOnError: false, 
-      autoSubfolderIndex: true,
-    },
-  },
-
-  // Runtime config
-  runtimeConfig: {
-    public: {
-      baseURL: process.env.npm_package_name
-        ? `/${process.env.npm_package_name}/`
-        : '/',
-    },
-  },
-
-  // Global CSS
-  css: ['~/assets/css/main.scss'],
-
-  // Plugins
-  plugins: ['~/plugins/vue-echarts.js'],
-
-  // Auto import components
-  components: true,
-
-  // Modules
   modules: [
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
@@ -52,7 +21,57 @@ export default defineNuxtConfig({
     'nuxt-icons',
     // https://vueuse.org/nuxt/README.html
     '@vueuse/nuxt',
+    '@formkit/auto-animate/nuxt',
+    '@nuxt/fonts',
   ],
+  
+  // Source directory
+  srcDir: './',
+  
+  // Target: static site generation
+  ssr: true,
+
+  // Static site generation
+  nitro: {
+    preset: 'static',
+    prerender: {
+      crawlLinks: true,
+      failOnError: false, 
+      autoSubfolderIndex: true,
+    },
+  },
+
+  // Global CSS
+  css: ['~/assets/css/main.scss'],
+
+  colorMode: {
+    preference: 'dark',
+  },
+
+  icon: {
+    serverBundle: {
+      collections: ['heroicons-outline', 'simple-icons'],
+    },
+  },
+
+  // Runtime config
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.npm_package_name
+        ? `/${process.env.npm_package_name}/`
+        : '/',
+    },
+  },
+
+
+  // Plugins
+  plugins: ['~/plugins/vue-echarts.js'],
+
+  // Auto import components
+  components: true,
+
+  // Modules
+
 
   // Tailwind CSS configuration
   tailwindcss: {
@@ -89,15 +108,7 @@ export default defineNuxtConfig({
     fallbackBreakpoint: 'lg',
   },
   
-  colorMode: {
-    preference: 'dark',
-  },
 
-  icon: {
-    serverBundle: {
-      collections: ['heroicons-outline', 'simple-icons'],
-    },
-  },
 
   // PWA configuration
   pwa: {
