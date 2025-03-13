@@ -13,6 +13,6 @@ export default defineAppConfig({
     },
     skeleton: {
       background: 'bg-white dark:bg-gray-700',
-    }
+    },
   },
-});
+})

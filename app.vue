@@ -3,9 +3,11 @@
 // For example, you could add a title template
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - APIpie.ai` : 'APIpie.ai - Global AI Health Dashboard';
-  }
-});
+    return titleChunk
+      ? `${titleChunk} - APIpie.ai`
+      : 'APIpie.ai - Global AI Health Dashboard'
+  },
+})
 </script>
 
 <template>
