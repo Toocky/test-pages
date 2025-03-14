@@ -24,7 +24,7 @@ colorMode.preference = 'dark' */
 </template>
 
 <style lang="css">
-@reference "~/assets/css/main.css";
+@reference "~/assets/css/main.scss";
 
 body {
   @apply antialiased font-secondary text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
