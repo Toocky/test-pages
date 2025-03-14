@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
 
   // Global CSS
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.scss'],
 
 /*   colorMode: {
     preference: 'dark',
