@@ -48,7 +48,6 @@
     "push-dir": "^0.4.1",
     "replace-in-file": "^8.3.0",
     "typescript": "^5.4.5",
-    "sass": "^1.82.0",
     "vue-eslint-parser": "^10.1.1"
   },
   "type": "module"

@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
 
   // Global CSS
-  css: ['~/assets/css/main.scss'],
+  css: ['~/assets/css/main.css'],
 
 /*   colorMode: {
     preference: 'dark',
@@ -206,13 +206,13 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ['echarts', 'vue-echarts'],
     },
-    css: {
+/*     css: {
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler', // or "modern"
         },
       },
-    },
+    }, */
     plugins: [
       {
         name: 'vite-plugin-glob-transform',
