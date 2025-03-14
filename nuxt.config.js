@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   // Global CSS
   css: ['~/assets/css/main.scss'],
 
-/*   colorMode: {
+  /*   colorMode: {
     preference: 'dark',
     fallback: 'dark',
     classSuffix: '',
@@ -115,7 +115,7 @@ export default defineNuxtConfig({
   // Modules
   modules: [
     // https://color-mode.nuxtjs.org/
-   /*  '@nuxtjs/color-mode', */
+    /*  '@nuxtjs/color-mode', */
     // https://vite-pwa-org.netlify.app/frameworks/nuxt
     '@vite-pwa/nuxt',
     // https://ui.nuxt.com/
@@ -227,7 +227,7 @@ export default defineNuxtConfig({
         },
       },
     ],
-/*     build: {
+    /*     build: {
       rollupOptions: {
         output: {
           // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
