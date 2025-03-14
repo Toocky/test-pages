@@ -136,18 +136,7 @@ export default defineNuxtConfig({
   ],
 
   // Tailwind CSS configuration
-  tailwindcss: {
-    config: {
-      theme: {
-        extend: {
-          fontFamily: {
-            primary: ['IBM Plex Sans', 'sans-serif'],
-            secondary: ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    },
-  },
+ // tailwindcss: {},
 
   viewport: {
     breakpoints: {

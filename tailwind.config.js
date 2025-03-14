@@ -8,4 +8,12 @@ export default {
     './app.vue',
   ],
   presets: [require('@nuxt/ui/tailwind')],
+  theme: {
+    extend: {
+      fontFamily: {
+        primary: ['IBM Plex Sans', 'sans-serif'],
+        secondary: ['Inter', 'sans-serif'],
+      },
+    },
+  },
 }

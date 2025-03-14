@@ -2,7 +2,7 @@
 @import '@nuxt/ui';
 
 @theme static {
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'IBM Plex Sans', sans-serif;
   --font-secondary: 'Inter', sans-serif;
 
   --color-gray-50: #f9fafb;
