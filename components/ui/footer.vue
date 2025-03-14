@@ -4,20 +4,6 @@ const mainSiteUrl = 'https://apipie.ai'
 // Define the static sections
 const items = [
   [
-    'Profile',
-    [
-      {
-        name: 'Login',
-        to: `${mainSiteUrl}/profile/auth/login`,
-        external: true,
-      },
-      {
-        name: 'Sign Up',
-        to: `${mainSiteUrl}/profile/auth/register`,
-        external: true,
-      },
-    ],
-  ],
   [
     'Product',
     [
