@@ -23,9 +23,7 @@ colorMode.preference = 'dark' */
   </nuxt-layout>
 </template>
 
-<style lang="css">
-@reference "~/assets/css/main.css";
-
+<style>
 body {
   @apply antialiased font-secondary text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900;
 }

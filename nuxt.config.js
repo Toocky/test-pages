@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
 
   // Global CSS
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.scss'],
 
 /*   colorMode: {
     preference: 'dark',
@@ -136,7 +136,18 @@ export default defineNuxtConfig({
   ],
 
   // Tailwind CSS configuration
- // tailwindcss: {},
+  tailwindcss: {
+    config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            primary: ['IBM Plex Sans', 'sans-serif'],
+            secondary: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    },
+  },
 
   viewport: {
     breakpoints: {
@@ -195,13 +206,13 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ['echarts', 'vue-echarts'],
     },
-/*     css: {
+    css: {
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler', // or "modern"
         },
       },
-    }, */
+    },
     plugins: [
       {
         name: 'vite-plugin-glob-transform',
