@@ -2,19 +2,19 @@
 // Import useHead from #imports instead of @unhead/vue
 import { useHead, useColorMode } from '#imports'
 
-// Force dark mode
+/* // Force dark mode
 const colorMode = useColorMode()
-colorMode.preference = 'dark'
+colorMode.preference = 'dark' */
 
 // Dynamic head configuration can be added here if needed
 // For example, you could add a title template
-useHead({
+/* useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
       ? `${titleChunk} - APIpie.ai`
       : 'APIpie.ai - Global AI Health Dashboard'
   },
-})
+}) */
 </script>
 
 <template>
