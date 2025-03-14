@@ -26,6 +26,17 @@ const mainSiteUrl = 'https://apipie.ai'
           external
           >Subscribe</u-link
         >
+        <u-link
+          class="py-[6px] px-3"
+          :to="`${mainSiteUrl}/profile/auth/login`"
+          external
+          >Login</u-link
+        >
+        <u-button
+          :to="`${mainSiteUrl}/profile/auth/register`"
+          external
+          >Sign Up</u-button
+        >
       </div>
     </div>
   </div>
