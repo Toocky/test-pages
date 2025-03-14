@@ -8,10 +8,8 @@ import type {
   TooltipComponentOption,
 } from 'echarts/components'
 import { ref, computed, watch, provide } from 'vue'
-import VChart, { THEME_KEY } from 'vue-echarts'
+import VChart, from 'vue-echarts'
 
-// Provide the theme key
-provide(THEME_KEY, 'dark')
 
 type PieOption = ComposeOption<
   | GridComponentOption
