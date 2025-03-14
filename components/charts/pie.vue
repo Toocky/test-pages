@@ -8,7 +8,7 @@ import type {
   TooltipComponentOption,
 } from 'echarts/components'
 import { ref, computed, watch, provide } from 'vue'
-import VChart, from 'vue-echarts'
+import VChart from 'vue-echarts'
 
 
 type PieOption = ComposeOption<
