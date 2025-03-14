@@ -19,14 +19,14 @@ export default defineNuxtConfig({
   // Global CSS
   css: ['~/assets/css/main.css'],
 
-  colorMode: {
+/*   colorMode: {
     preference: 'dark',
     fallback: 'dark',
     classSuffix: '',
     dataValue: 'dark',
     forcedTheme: 'dark',
     classPrefix: '',
-  },
+  }, */
 
   icon: {
     serverBundle: {
