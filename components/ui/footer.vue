@@ -3,7 +3,7 @@ const mainSiteUrl = 'https://apipie.ai'
 
 // Define the static sections
 const items = [
-  [
+
   [
     'Product',
     [
