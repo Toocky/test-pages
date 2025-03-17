@@ -8,7 +8,7 @@ import { useApi } from '~/composables/use-api'
 
 // Import echarts directly
 import { use } from 'echarts/core'
-import { CanvasRenderer } from 'echarts/renderers'
+import { SVGRenderer  } from 'echarts/renderers'
 import { BarChart, PieChart } from 'echarts/charts'
 import {
   GridComponent,

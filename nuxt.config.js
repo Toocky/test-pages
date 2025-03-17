@@ -133,7 +133,15 @@ export default defineNuxtConfig({
     '@formkit/auto-animate/nuxt',
     '@nuxt/fonts',
     '@nuxt/devtools',
+    'nuxt-echarts',
   ],
+  echarts: {
+    // Options
+    charts: ['BarChart', 'PieChart'],
+    renderer: ['svg'],
+    components: ['CanvasRenderer', 'GridComponent', 'TooltipComponent', 'LegendComponent'],
+    features: ['LabelLayout'],
+  },
 
   // Tailwind CSS configuration
   tailwindcss: {
@@ -227,23 +235,6 @@ export default defineNuxtConfig({
         },
       },
     ],
-    /*     build: {
-      rollupOptions: {
-        output: {
-          // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
-          sanitizeFileName(name) {
-            const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g
-            const DRIVE_LETTER_REGEX = /^[a-z]:/i
-            const match = DRIVE_LETTER_REGEX.exec(name)
-            const driveLetter = match ? match[0] : ''
-            return (
-              driveLetter +
-              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
-            )
-          },
-        },
-      },
-    }, */
   },
 
   // Auto-import composables
@@ -255,6 +246,99 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  robots: {
+    groups: [
+      {
+        userAgent: ['*'],
+        disallow: [
+          '/profile/*',
+          '*/tags/*',
+          '*/cdn-cgi/*',
+          '*/category/*',
+          '*/v1/*',
+          'https://apipie.ai/v1',
+          'https://apipie.ai/urlshare',
+          'https://apipie.ai/v1/*',
+          'https://apipie.ai/urlshare/*',
+          'https://apipie.ai/ragtune',
+          'https://apipie.ai/ragtune/*',
+          'https://apipie.ai/urlshare',
+        ],
+      },
+    ],
+    sitemap: [
+      '/sitemap.xml',
+      '/docs/sitemap.xml',
+    ],
+  },
 
+  sitemap: {
+    exclude: [
+      '/profile/*',
+      '*/tags/*',
+    ],
+  },
+  schemaOrg: {
+    canonicalHost: 'https://apipie.ai', 
+    logo: 'https://apipie.ai/img/logo-drk.png',
+    identity: defineOrganization({
+      name: 'APIpie.ai',
+      url: 'https://apipie.ai',
+      logo: 'https://apipie.ai/img/logo-drk.png',
+      email: 'support@neuronicai.com', 
+      sameAs: [ 
+        'https://x.com/APIpie_ai',
+        'https://www.linkedin.com/company/neuronicaiinc/',
+      ],
+    }),
+  },
+  seoUtils: {
+    title:'APIpie.ai - AI API Services',
+    logo: 'https://apipie.ai/img/logo-drk.png',
+    og: {
+      type: 'website',
+      siteName: 'APIpie.ai',
+      logo: 'https://apipie.ai/img/logo-drk.png',
+    },
+    twitter: {
+      card: 'summary_large_image', 
+      site: '@APIpie_ai',          
+      title: 'APIpie.ai - AI API Services',
+      description: 'Your one-stop shop for AI API services.',
+    },
+    ogType: 'website', 
+  },
+  ogImage: {
+    screens: [
+      {
+        width: 1200, 
+        height: 630, 
+      },
+    ],
+    fonts: [
+      'IBM Plex Sans:600',
+      'Inter:800',
+    ],
+    defaults: {
+      background: '#00A279',
+      textColor: '#FFFFFF',
+      fontSize: '64px',
+      fontFamily: 'IBM Plex Sans',
+      title: 'APIpie.ai',
+      theme: '#00dc82',
+      colorMode: 'dark',
+      icon: 'https://apipie.ai/img/logo-drk.png',
+      logo: 'https://apipie.ai/img/logo-drk.png',
+      siteLogo: 'https://apipie.ai/img/logo-drk.png',
+      siteName:'APIpie.ai',
+    },
+  },
+
+  site: {
+    url: 'https://apipie.ai', 
+    name: 'APIpie.ai', 
+    description: 'Your one-stop shop for AI API services.',
+    defaultLocale: 'en', 
+  },
   compatibilityDate: '2025-03-12',
 })

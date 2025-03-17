@@ -40,7 +40,13 @@
     "webpack": "^5.98.0",
     "workbox-build": "^7.3.0",
     "workbox-window": "^7.3.0",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",    
+    "@nuxtjs/robots": "^5.0.1",
+    "@nuxtjs/sitemap": "^7.0.0",
+    "nuxt-schema-org": "^5.0.3",
+    "nuxt-seo-utils": "^7.0.4",
+    "nuxt-og-image": "^5.0.2",
+    "nuxt-site-config": "^3.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
