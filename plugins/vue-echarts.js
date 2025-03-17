@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app'
 import { use } from 'echarts/core'
-import { SVGRenderer } from 'echarts/renderers/SVGRenderer'
+import { SVGRenderer } from 'echarts/renderers'
 import { BarChart, PieChart } from 'echarts/charts'
 import {
   GridComponent,
