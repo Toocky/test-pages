@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineOrganization } from 'nuxt-schema-org/schema';
+
 export default defineNuxtConfig({
   // Source directory
   srcDir: './',
