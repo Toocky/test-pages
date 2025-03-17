@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app'
 import { use } from 'echarts/core'
-import { SvgRenderer } from 'echarts/renderers'
+import { SVGRenderer } from 'echarts/renderers/SVGRenderer'
 import { BarChart, PieChart } from 'echarts/charts'
 import {
   GridComponent,
@@ -13,7 +13,7 @@ import VChart from 'vue-echarts'
 
 // Register ECharts components
 use([
-  SvgRenderer,
+  SVGRenderer,
   BarChart,
   PieChart,
   GridComponent,

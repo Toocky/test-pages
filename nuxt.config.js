@@ -141,7 +141,7 @@ export default defineNuxtConfig({
     // Options
     charts: ['BarChart', 'PieChart'],
     renderer: ['svg'],
-    components: ['SvgRenderer', 'GridComponent', 'TooltipComponent', 'LegendComponent'],
+    components: ['SVGRenderer', 'GridComponent', 'TooltipComponent', 'LegendComponent'],
     features: ['LabelLayout'],
   },
 
