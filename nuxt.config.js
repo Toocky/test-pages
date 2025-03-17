@@ -135,7 +135,7 @@ export default defineNuxtConfig({
     '@formkit/auto-animate/nuxt',
     '@nuxt/fonts',
     '@nuxt/devtools',
-    'nuxt-echarts',
+    //'nuxt-echarts',
   ],
   echarts: {
     // Options
