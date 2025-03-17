@@ -20,7 +20,7 @@ import { LabelLayout } from 'echarts/features'
 // Register ECharts components
 use([
   BarChart,
-  CanvasRenderer,
+  SvgRenderer,
   PieChart,
   GridComponent,
   LabelLayout,

@@ -109,7 +109,7 @@ export default defineNuxtConfig({
   },
 
   // Plugins
-  plugins: ['~/plugins/vue-echarts.js'],
+  //plugins: ['~/plugins/vue-echarts.js'],
 
   // Auto import components
   components: true,
@@ -141,7 +141,7 @@ export default defineNuxtConfig({
     // Options
     charts: ['BarChart', 'PieChart'],
     renderer: ['svg'],
-    components: ['CanvasRenderer', 'GridComponent', 'TooltipComponent', 'LegendComponent'],
+    components: ['SvgRenderer', 'GridComponent', 'TooltipComponent', 'LegendComponent'],
     features: ['LabelLayout'],
   },
 
