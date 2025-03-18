@@ -6,28 +6,6 @@ import { addUSD, numberToMoney, formatLargeNumber } from '~/utils/formatters'
 import { ref, computed, watch, onMounted } from 'vue'
 import { useApi } from '~/composables/use-api'
 
-// Import echarts directly
-import { use } from 'echarts/core'
-import { SVGRenderer  } from 'echarts/renderers'
-import { BarChart, PieChart } from 'echarts/charts'
-import {
-  GridComponent,
-  LegendComponent,
-  TooltipComponent,
-} from 'echarts/components'
-import { LabelLayout } from 'echarts/features'
-
-// Register ECharts components
-use([
-  BarChart,
-  SVGRenderer,
-  PieChart,
-  GridComponent,
-  LabelLayout,
-  TooltipComponent,
-  LegendComponent,
-])
-
 // Define Model type since we don't have the generated types
 type Model = {
   provider: string

@@ -1,24 +1,4 @@
 <script setup lang="ts">
-import type { PieSeriesOption } from 'echarts/charts'
-import type { ComposeOption } from 'echarts/core'
-import type {
-  GridComponentOption,
-  LegendComponentOption,
-  TitleComponentOption,
-  TooltipComponentOption,
-} from 'echarts/components'
-import { ref, computed, watch, provide } from 'vue'
-import VChart from 'vue-echarts'
-
-
-type PieOption = ComposeOption<
-  | GridComponentOption
-  | PieSeriesOption
-  | TitleComponentOption
-  | TooltipComponentOption
-  | LegendComponentOption
->
-
 const chartRef = ref(null)
 const props = withDefaults(
   defineProps<{
@@ -55,7 +35,7 @@ const legendProps = computed(() => {
   }
 })
 
-const buildOption = (): PieOption => {
+const buildOption = (): ECOption => {
   return {
     legend: {
       icon: 'square',
@@ -87,8 +67,13 @@ const buildOption = (): PieOption => {
     ],
   }
 }
+const initOptions = computed<InitOptions>(() => ({
+  height: 300,
+  width: 300,
+}))
+provide(INIT_OPTIONS_KEY, initOptions)
 
-const option = ref<PieOption>(buildOption())
+const option = ref<ECOption>(buildOption())
 
 watch(
   () => [props.data, props.name, props.legendPosition],
@@ -99,13 +84,13 @@ watch(
 </script>
 
 <template>
-  <v-chart class="chart" ref="chartRef" :option="option" autoresize />
+  <VChartLight class="chart" ref="chartRef" :option="option" autoresize />
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .chart {
   height: 300px;
   width: 100%;
   min-height: 300px;
 }
-</style>
+</style> -->

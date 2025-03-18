@@ -1,12 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { defineOrganization } from 'nuxt-schema-org/schema';
+import { defineOrganization } from 'nuxt-schema-org/schema'
 
 export default defineNuxtConfig({
   // Source directory
   srcDir: './',
 
   // Target: static site generation
-  ssr: false,
+  ssr: true,
 
   // Static site generation
   nitro: {
@@ -21,31 +21,12 @@ export default defineNuxtConfig({
   // Global CSS
   css: ['~/assets/css/main.scss'],
 
-  /*   colorMode: {
-    preference: 'dark',
-    fallback: 'dark',
-    classSuffix: '',
-    dataValue: 'dark',
-    forcedTheme: 'dark',
-    classPrefix: '',
-  }, */
-
   icon: {
     serverBundle: {
       collections: ['heroicons-outline', 'simple-icons'],
     },
   },
-  /*   router: {
-    base: `/${process.env.npm_package_name}` || '',
-  },
-  // Runtime config
-  runtimeConfig: {
-    public: {
-      baseURL: process.env.npm_package_name
-        ? `/${process.env.npm_package_name}/`
-        : '/',
-    },
-  }, */
+
   devtools: {
     // Enable devtools (default: true)
     enabled: true,
@@ -108,16 +89,11 @@ export default defineNuxtConfig({
     },
   },
 
-  // Plugins
-  //plugins: ['~/plugins/vue-echarts.js'],
-
   // Auto import components
   components: true,
 
   // Modules
   modules: [
-    // https://color-mode.nuxtjs.org/
-    /*  '@nuxtjs/color-mode', */
     // https://vite-pwa-org.netlify.app/frameworks/nuxt
     '@vite-pwa/nuxt',
     // https://ui.nuxt.com/
@@ -135,13 +111,19 @@ export default defineNuxtConfig({
     '@formkit/auto-animate/nuxt',
     '@nuxt/fonts',
     '@nuxt/devtools',
-    //'nuxt-echarts',
+    'nuxt-echarts',
   ],
   echarts: {
     // Options
+    ssr: true,
     charts: ['BarChart', 'PieChart'],
     renderer: ['svg'],
-    components: ['SVGRenderer', 'GridComponent', 'TooltipComponent', 'LegendComponent'],
+    components: [
+      'SVGRenderer',
+      'GridComponent',
+      'TooltipComponent',
+      'LegendComponent',
+    ],
     features: ['LabelLayout'],
   },
 
@@ -268,34 +250,28 @@ export default defineNuxtConfig({
         ],
       },
     ],
-    sitemap: [
-      '/sitemap.xml',
-      '/docs/sitemap.xml',
-    ],
+    sitemap: ['/sitemap.xml', '/docs/sitemap.xml'],
   },
 
   sitemap: {
-    exclude: [
-      '/profile/*',
-      '*/tags/*',
-    ],
+    exclude: ['/profile/*', '*/tags/*'],
   },
   schemaOrg: {
-    canonicalHost: 'https://apipie.ai', 
+    canonicalHost: 'https://apipie.ai',
     logo: 'https://apipie.ai/img/logo-drk.png',
     identity: defineOrganization({
       name: 'APIpie.ai',
       url: 'https://apipie.ai',
       logo: 'https://apipie.ai/img/logo-drk.png',
-      email: 'support@neuronicai.com', 
-      sameAs: [ 
+      email: 'support@neuronicai.com',
+      sameAs: [
         'https://x.com/APIpie_ai',
         'https://www.linkedin.com/company/neuronicaiinc/',
       ],
     }),
   },
   seoUtils: {
-    title:'APIpie.ai - AI API Services',
+    title: 'APIpie.ai - AI API Services',
     logo: 'https://apipie.ai/img/logo-drk.png',
     og: {
       type: 'website',
@@ -303,24 +279,21 @@ export default defineNuxtConfig({
       logo: 'https://apipie.ai/img/logo-drk.png',
     },
     twitter: {
-      card: 'summary_large_image', 
-      site: '@APIpie_ai',          
+      card: 'summary_large_image',
+      site: '@APIpie_ai',
       title: 'APIpie.ai - AI API Services',
       description: 'Your one-stop shop for AI API services.',
     },
-    ogType: 'website', 
+    ogType: 'website',
   },
   ogImage: {
     screens: [
       {
-        width: 1200, 
-        height: 630, 
+        width: 1200,
+        height: 630,
       },
     ],
-    fonts: [
-      'IBM Plex Sans:600',
-      'Inter:800',
-    ],
+    fonts: ['IBM Plex Sans:600', 'Inter:800'],
     defaults: {
       background: '#00A279',
       textColor: '#FFFFFF',
@@ -332,15 +305,15 @@ export default defineNuxtConfig({
       icon: 'https://apipie.ai/img/logo-drk.png',
       logo: 'https://apipie.ai/img/logo-drk.png',
       siteLogo: 'https://apipie.ai/img/logo-drk.png',
-      siteName:'APIpie.ai',
+      siteName: 'APIpie.ai',
     },
   },
 
   site: {
-    url: 'https://apipie.ai', 
-    name: 'APIpie.ai', 
+    url: 'https://apipie.ai',
+    name: 'APIpie.ai',
     description: 'Your one-stop shop for AI API services.',
-    defaultLocale: 'en', 
+    defaultLocale: 'en',
   },
   compatibilityDate: '2025-03-12',
 })

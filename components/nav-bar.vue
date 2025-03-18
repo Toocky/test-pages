@@ -32,9 +32,7 @@ const mainSiteUrl = 'https://apipie.ai'
           external
           >Login</u-link
         >
-        <u-button
-          :to="`${mainSiteUrl}/profile/auth/register`"
-          external
+        <u-button :to="`${mainSiteUrl}/profile/auth/register`" external
           >Sign Up</u-button
         >
       </div>
