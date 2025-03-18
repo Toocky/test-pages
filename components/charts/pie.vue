@@ -68,8 +68,8 @@ const buildOption = (): ECOption => {
   }
 }
 const initOptions = computed<InitOptions>(() => ({
-  height: 300,
-  width: 300,
+  height: 190,
+  width: 190,
 }))
 provide(INIT_OPTIONS_KEY, initOptions)
 
@@ -95,11 +95,11 @@ watch(
   </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .chart-container {
-  min-height: 150px;
-  min-width: 150px;
+  min-height: 300px;
+  min-width: 300px;
   height: 100%;
   width: 100%;
 }
-</style>
+</style> -->
