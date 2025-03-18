@@ -84,5 +84,22 @@ watch(
 </script>
 
 <template>
-  <VChartLight class="chart" ref="chartRef" :option="option" autoresize />
+  <div class="chart-container">
+    <VChartLight 
+      class="chart" 
+      ref="chartRef" 
+      :option="option" 
+      :init-options="initOptions"
+      autoresize 
+    />
+  </div>
 </template>
+
+<style scoped>
+.chart-container {
+  min-height: 200px;
+  min-width: 200px;
+  height: 100%;
+  width: 100%;
+}
+</style>
