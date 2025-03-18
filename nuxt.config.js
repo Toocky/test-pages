@@ -119,7 +119,6 @@ export default defineNuxtConfig({
     charts: ['BarChart', 'PieChart'],
     renderer: ['svg'],
     components: [
-      'SVGRenderer',
       'GridComponent',
       'TooltipComponent',
       'LegendComponent',
