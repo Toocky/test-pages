@@ -68,8 +68,8 @@ const buildOption = (): ECOption => {
   }
 }
 const initOptions = computed<InitOptions>(() => ({
-  height: 300,
-  width: 300,
+  height: 200,
+  width: 200,
 }))
 provide(INIT_OPTIONS_KEY, initOptions)
 
@@ -86,11 +86,3 @@ watch(
 <template>
   <VChartLight class="chart" ref="chartRef" :option="option" autoresize />
 </template>
-
-<!-- <style scoped>
-.chart {
-  height: 300px;
-  width: 100%;
-  min-height: 300px;
-}
-</style> -->
