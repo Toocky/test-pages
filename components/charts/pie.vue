@@ -71,14 +71,14 @@ const buildOption = (): ECOption => {
     ],
   }
 }
-const initOptions = computed<InitOptions>(() => ({
+/* const initOptions = computed<InitOptions>(() => ({
   height: 190,
   width: 190,
-}))
+})) */
 
 // Define a constant for the init options key if it's not imported
-const INIT_OPTIONS_KEY = Symbol('init-options')
-provide(INIT_OPTIONS_KEY, initOptions)
+/* const INIT_OPTIONS_KEY = Symbol('init-options')
+provide(INIT_OPTIONS_KEY, initOptions) */
 
 const option = ref<ECOption>(buildOption())
 
@@ -102,18 +102,17 @@ watch(
 </script>
 
 <template>
-  <div class="chart-container">
-    <VChartLight
+<!--   <div class="chart-container"> -->
+    <VChart
       class="chart"
       ref="chartRef"
       :option="option"
-      :init-options="initOptions"
       autoresize
     />
-  </div>
+<!--  // </div> -->
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .chart-container {
   min-height: 190px;
   min-width: 190px;
@@ -121,3 +120,4 @@ watch(
   width: 100%;
 }
 </style>
+ -->
