@@ -11,11 +11,11 @@ export default defineNuxtConfig({
   // Static site generation
   nitro: {
     preset: 'static',
-    prerender: {
+/*     prerender: {
       crawlLinks: true,
       failOnError: false,
       autoSubfolderIndex: true,
-    },
+    }, */
   },
 
   // Global CSS
