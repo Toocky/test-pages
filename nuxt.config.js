@@ -11,11 +11,11 @@ export default defineNuxtConfig({
   // Static site generation
   nitro: {
     preset: 'static',
-/*     prerender: {
+    prerender: {
       crawlLinks: true,
       failOnError: false,
       autoSubfolderIndex: true,
-    }, */
+    },
   },
 
   // Global CSS
@@ -185,13 +185,13 @@ export default defineNuxtConfig({
 
   // Build configuration
   build: {
-    transpile: ['echarts', 'vue-echarts'],
+    transpile: ['echarts', 'vue-echarts', 'nuxt-echarts'],
   },
 
   // Vite configuration
   vite: {
     optimizeDeps: {
-      include: ['echarts', 'vue-echarts'],
+      include: ['echarts', 'vue-echarts', 'nuxt-echarts'],
     },
     css: {
       preprocessorOptions: {

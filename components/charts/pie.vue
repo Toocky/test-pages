@@ -102,14 +102,9 @@ watch(
 </script>
 
 <template>
-<!--   <div class="chart-container"> -->
-    <VChart
-      class="chart"
-      ref="chartRef"
-      :option="option"
-      autoresize
-    />
-<!--  // </div> -->
+  <!--   <div class="chart-container"> -->
+  <VChart class="chart" ref="chartRef" :option="option" autoresize />
+  <!--  // </div> -->
 </template>
 
 <!-- <style scoped>
