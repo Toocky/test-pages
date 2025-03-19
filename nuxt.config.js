@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   srcDir: './',
 
   // Target: static site generation
-  ssr: true,
+  ssr: false,
 
   // Static site generation
   nitro: {
@@ -118,11 +118,7 @@ export default defineNuxtConfig({
     ssr: false,
     charts: ['BarChart', 'PieChart'],
     renderer: ['svg'],
-    components: [
-      'GridComponent',
-      'TooltipComponent',
-      'LegendComponent',
-    ],
+    components: ['GridComponent', 'TooltipComponent', 'LegendComponent'],
     features: ['LabelLayout'],
   },
 

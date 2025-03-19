@@ -103,12 +103,12 @@ watch(
 
 <template>
   <div class="chart-container">
-    <VChartLight 
-      class="chart" 
-      ref="chartRef" 
-      :option="option" 
+    <VChartLight
+      class="chart"
+      ref="chartRef"
+      :option="option"
       :init-options="initOptions"
-      autoresize 
+      autoresize
     />
   </div>
 </template>
