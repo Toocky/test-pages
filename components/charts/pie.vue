@@ -102,17 +102,5 @@ watch(
 </script>
 
 <template>
-  <!--   <div class="chart-container"> -->
   <VChart class="chart" ref="chartRef" :option="option" autoresize />
-  <!--  // </div> -->
 </template>
-
-<!-- <style scoped>
-.chart-container {
-  min-height: 190px;
-  min-width: 190px;
-  height: 100%;
-  width: 100%;
-}
-</style>
- -->
