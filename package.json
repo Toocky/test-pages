@@ -44,7 +44,7 @@
     "nuxt-schema-org": "^5.0.3",
     "nuxt-seo-utils": "^7.0.4",
     "nuxt-og-image": "^5.0.2",
-    "nuxt-site-config": "^3.1.5"
+    "nuxt-site-config": "^3.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
